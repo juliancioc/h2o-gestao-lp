@@ -13,6 +13,14 @@ const Navbar = () => {
     { label: "Depoimentos", href: "#depoimentos" },
   ];
 
+  const handleSignIn = () => {
+    window.open("https://app.h2ogestao.com.br/login", "_blank", "noopener,noreferrer");
+  }
+
+  const handleSendEmail = () => {
+    window.location.href = "mailto:contato@h2ogestao.com.br"
+  }
+
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border/50">
       <div className="container mx-auto px-4">
@@ -33,10 +41,10 @@ const Navbar = () => {
           </div>
 
           <div className="hidden md:flex items-center gap-4">
-            <Button variant="ghost" size="sm">
+            <Button variant="ghost" size="sm" onClick={handleSignIn}>
               Entrar
             </Button>
-            <Button variant="default" size="sm">
+            <Button variant="default" size="sm" onClick={handleSendEmail}>
               Começar Agora
             </Button>
           </div>
@@ -70,7 +78,7 @@ const Navbar = () => {
                 </a>
               ))}
               <div className="flex flex-col gap-2 pt-4">
-                <Button variant="ghost" className="w-full">
+                <Button variant="ghost" className="w-full" onClick={handleSignIn}>
                   Entrar
                 </Button>
                 <Button variant="default" className="w-full">

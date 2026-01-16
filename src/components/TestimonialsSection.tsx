@@ -6,7 +6,7 @@ const testimonials = [
     name: "Carlos Silva",
     role: "Proprietário",
     company: "Água Pura Distribuidora",
-    content: "Depois de implementar o h2oGestão, conseguimos aumentar nossas entregas em 40% sem contratar mais entregadores. A roteirização inteligente fez toda a diferença.",
+    content: "Depois de implementar o H2O Gestão, conseguimos aumentar nossas entregas em 40% sem contratar mais entregadores. A roteirização inteligente fez toda a diferença.",
     rating: 5,
   },
   {
@@ -20,7 +20,7 @@ const testimonials = [
     name: "João Oliveira",
     role: "CEO",
     company: "Água & Cia",
-    content: "Com o h2oGestão conseguimos organizar toda nossa rede de franquias. Agora gerenciamos todas as unidades de forma centralizada e eficiente.",
+    content: "Com o H2O Gestão conseguimos organizar toda nossa rede de franquias. Agora gerenciamos todas as unidades de forma centralizada e eficiente.",
     rating: 5,
   },
 ];
@@ -39,7 +39,7 @@ const TestimonialsSection = () => {
             <span className="text-gradient">clientes dizem</span>
           </h2>
           <p className="text-lg text-muted-foreground">
-            Centenas de distribuidoras já transformaram seus negócios com o h2oGestão.
+            Centenas de distribuidoras já transformaram seus negócios com o H2O Gestão.
           </p>
         </div>
 

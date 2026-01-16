@@ -41,7 +41,7 @@ const HeroSection = () => {
 
           {/* Subtitle */}
           <p className="text-lg md:text-xl text-primary-foreground/80 mb-10 max-w-2xl mx-auto animate-fade-up-delayed leading-relaxed">
-            Gerencie pedidos, rotas, estoque e financeiro em uma única plataforma. 
+            Gerencie pedidos, estoque e financeiro em uma única plataforma. 
             Simplifique sua operação e ofereça aos seus clientes uma experiência única.
           </p>
 

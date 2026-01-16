@@ -17,7 +17,7 @@ const Footer = () => {
     empresa: [
       { label: "Sobre Nós", href: "#" },
       { label: "Carreiras", href: "#" },
-      { label: "Contato", href: "#" },
+      { label: "contato@h2ogestao.com.br", href: "mailto:contato@h2ogestao.com.br" },
       { label: "Parceiros", href: "#" },
     ],
     legal: [
@@ -116,7 +116,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-primary-foreground/10 mt-12 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-primary-foreground/60">
-            © 2024 h2oGestão. Todos os direitos reservados.
+            © 2024 H2O Gestão. Todos os direitos reservados.
           </p>
           <p className="text-sm text-primary-foreground/60">
             Feito com 💧 para distribuidoras de água

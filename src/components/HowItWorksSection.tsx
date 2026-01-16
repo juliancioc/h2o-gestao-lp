@@ -5,7 +5,7 @@ const steps = [
     number: "01",
     icon: ClipboardList,
     title: "Cadastre seus Clientes",
-    description: "Importe sua base de clientes ou cadastre manualmente. Organize por rotas e frequência de entrega.",
+    description: "Importe sua base de clientes ou cadastre manualmente.",
   },
   {
     number: "02",
@@ -38,7 +38,7 @@ const HowItWorksSection = () => {
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-foreground mb-6">
             Como funciona o{" "}
-            <span className="text-gradient">h2oGestão</span>
+            <span className="text-gradient">H2O Gestão</span>
           </h2>
           <p className="text-lg text-muted-foreground">
             Em poucos passos você organiza toda a operação da sua distribuidora 

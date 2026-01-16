@@ -16,11 +16,11 @@ const features = [
     title: "Gestão de Pedidos",
     description: "Receba pedidos por WhatsApp, app ou site. Acompanhe em tempo real do recebimento à entrega.",
   },
-  {
-    icon: Truck,
-    title: "Roteirização Inteligente",
-    description: "Otimize rotas de entrega automaticamente. Reduza custos com combustível e tempo.",
-  },
+  // {
+  //   icon: Truck,
+  //   title: "Roteirização Inteligente",
+  //   description: "Otimize rotas de entrega automaticamente. Reduza custos com combustível e tempo.",
+  // },
   {
     icon: CreditCard,
     title: "Financeiro Completo",
