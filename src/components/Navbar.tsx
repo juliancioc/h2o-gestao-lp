@@ -9,17 +9,23 @@ const Navbar = () => {
   const navLinks = [
     { label: "Funcionalidades", href: "#funcionalidades" },
     { label: "Como Funciona", href: "#como-funciona" },
-    { label: "Planos", href: "#planos" },
+    // { label: "Planos", href: "#planos" },
     { label: "Depoimentos", href: "#depoimentos" },
   ];
 
   const handleSignIn = () => {
-    window.open("https://app.h2ogestao.com.br/login", "_blank", "noopener,noreferrer");
-  }
+    window.open(
+      "https://app.h2ogestao.com.br/login",
+      "_blank",
+      "noopener,noreferrer",
+    );
+  };
 
-  const handleSendEmail = () => {
-    window.location.href = "mailto:contato@h2ogestao.com.br"
-  }
+  const handleOpenWhatsApp = () => {
+    const whatsappUrl =
+      "https://wa.me/5574999215010?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20o%20H2O%20Gest%C3%A3o.";
+    window.open(whatsappUrl, "_blank");
+  };
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border/50">
@@ -44,7 +50,7 @@ const Navbar = () => {
             <Button variant="ghost" size="sm" onClick={handleSignIn}>
               Entrar
             </Button>
-            <Button variant="default" size="sm" onClick={handleSendEmail}>
+            <Button variant="default" size="sm" onClick={handleOpenWhatsApp}>
               Começar Agora
             </Button>
           </div>
@@ -78,7 +84,11 @@ const Navbar = () => {
                 </a>
               ))}
               <div className="flex flex-col gap-2 pt-4">
-                <Button variant="ghost" className="w-full" onClick={handleSignIn}>
+                <Button
+                  variant="ghost"
+                  className="w-full"
+                  onClick={handleSignIn}
+                >
                   Entrar
                 </Button>
                 <Button variant="default" className="w-full">

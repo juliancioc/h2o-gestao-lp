@@ -4,7 +4,7 @@ const Footer = () => {
   const footerLinks = {
     produto: [
       { label: "Funcionalidades", href: "#funcionalidades" },
-      { label: "Planos", href: "#planos" },
+      // { label: "Planos", href: "#planos" },
       { label: "Como Funciona", href: "#como-funciona" },
       { label: "Integrações", href: "#" },
     ],

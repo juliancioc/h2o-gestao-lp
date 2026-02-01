@@ -3,27 +3,28 @@ import { Card, CardContent } from "@/components/ui/card";
 
 const testimonials = [
   {
-    name: "Carlos Silva",
+    name: "Carlos Almeida",
     role: "Proprietário",
-    company: "Água Pura Distribuidora",
-    content: "Depois de implementar o H2O Gestão, conseguimos aumentar nossas entregas em 40% sem contratar mais entregadores. A roteirização inteligente fez toda a diferença.",
+    company: "Distribuidora Central Água",
+    content: "Eu anotava tudo no caderno e sempre ficava na dúvida se o dinheiro batia. Com o H2O Gestão, hoje sei exatamente quanto vendi, quanto entrou no Pix e qual foi meu lucro no dia.",
     rating: 5,
   },
   {
-    name: "Maria Santos",
-    role: "Gerente Operacional",
-    company: "HidroTop",
-    content: "A integração com WhatsApp revolucionou nosso atendimento. Nossos clientes adoram fazer pedidos de forma rápida e receber atualizações em tempo real.",
+    name: "Ana Paula",
+    role: "Administradora",
+    company: "Água Boa Delivery",
+    content: "O controle de fiado e fechamento de caixa facilitou demais. Paramos de perder dinheiro e agora tenho tudo organizado no celular.",
     rating: 5,
   },
   {
-    name: "João Oliveira",
-    role: "CEO",
-    company: "Água & Cia",
-    content: "Com o H2O Gestão conseguimos organizar toda nossa rede de franquias. Agora gerenciamos todas as unidades de forma centralizada e eficiente.",
+    name: "Marcos Pereira",
+    role: "Proprietário",
+    company: "Fonte Viva Distribuidora",
+    content: "Antes eu não sabia quanto realmente lucrava por galão. Hoje consigo ver os números claros e tomar decisão com mais segurança.",
     rating: 5,
   },
 ];
+
 
 const TestimonialsSection = () => {
   return (

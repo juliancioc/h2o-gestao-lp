@@ -1,12 +1,16 @@
-import { 
-  Truck, 
-  Package, 
-  CreditCard, 
-  Users, 
-  BarChart3, 
-  MapPin, 
-  Bell, 
-  Smartphone 
+import {
+  Truck,
+  Package,
+  CreditCard,
+  Users,
+  BarChart3,
+  MapPin,
+  Bell,
+  Smartphone,
+  Archive,  
+  Wallet,
+  Repeat,
+  TrendingUp,
 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -14,7 +18,8 @@ const features = [
   {
     icon: Package,
     title: "Gestão de Pedidos",
-    description: "Receba pedidos por WhatsApp, app ou site. Acompanhe em tempo real do recebimento à entrega.",
+    description:
+      "Crie, acompanhe e gerencie pedidos de forma simples e eficiente.",
   },
   // {
   //   icon: Truck,
@@ -24,38 +29,68 @@ const features = [
   {
     icon: CreditCard,
     title: "Financeiro Completo",
-    description: "Controle contas a pagar e receber, fluxo de caixa, cobranças e relatórios detalhados.",
+    description:
+      "Controle contas a pagar e receber, fluxo de caixa, cobranças e relatórios detalhados.",
   },
   {
     icon: Users,
     title: "Gestão de Clientes",
-    description: "Cadastro completo, histórico de compras, crédito e relacionamento com o cliente.",
+    description:
+      "Cadastro completo, histórico de compras, crédito e relacionamento com o cliente.",
   },
   {
     icon: BarChart3,
     title: "Relatórios e Dashboards",
-    description: "Visualize métricas importantes em tempo real. Tome decisões baseadas em dados.",
+    description:
+      "Visualize métricas importantes em tempo real. Tome decisões baseadas em dados.",
+  },
+  // {
+  //   icon: MapPin,
+  //   title: "Rastreamento GPS",
+  //   description: "Acompanhe seus entregadores em tempo real. Ofereça transparência aos clientes.",
+  // },
+  // {
+  //   icon: Bell,
+  //   title: "Notificações Automáticas",
+  //   description: "Avise clientes sobre status do pedido via SMS, WhatsApp ou push notification.",
+  // },
+  // {
+  //   icon: Smartphone,
+  //   title: "App para Entregadores",
+  //   description: "Aplicativo mobile completo para sua equipe de entrega gerenciar pedidos.",
+  // },
+  {
+    icon: Archive,
+    title: "Controle de Galões",
+    description:
+      "Controle galões cheios, vazios, em posse do cliente e perdas. Evite prejuízo e desorganização.",
   },
   {
-    icon: MapPin,
-    title: "Rastreamento GPS",
-    description: "Acompanhe seus entregadores em tempo real. Ofereça transparência aos clientes.",
+    icon: Wallet,
+    title: "Fechamento de Caixa Diário",
+    description:
+      "Feche o caixa por dia com dinheiro, Pix e fiado. Saiba exatamente se sobrou ou faltou.",
   },
   {
-    icon: Bell,
-    title: "Notificações Automáticas",
-    description: "Avise clientes sobre status do pedido via SMS, WhatsApp ou push notification.",
+    icon: Repeat,
+    title: "Gestão de Fiado",
+    description:
+      "Controle clientes fiado, valores em aberto e recebimentos. Reduza inadimplência.",
   },
   {
-    icon: Smartphone,
-    title: "App para Entregadores",
-    description: "Aplicativo mobile completo para sua equipe de entrega gerenciar pedidos.",
+    icon: TrendingUp,
+    title: "Análise de Lucro por Galão",
+    description:
+      "Veja lucro real por galão, ponto de equilíbrio e metas diárias de venda.",
   },
 ];
 
 const FeaturesSection = () => {
   return (
-    <section id="funcionalidades" className="py-24 bg-background relative overflow-hidden">
+    <section
+      id="funcionalidades"
+      className="py-24 bg-background relative overflow-hidden"
+    >
       {/* Decorative Background */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-accent/30 rounded-full blur-3xl -z-10" />
 
@@ -70,7 +105,7 @@ const FeaturesSection = () => {
             <span className="text-gradient">gerenciar sua distribuidora</span>
           </h2>
           <p className="text-lg text-muted-foreground">
-            Uma plataforma completa com todas as ferramentas necessárias para 
+            Uma plataforma completa com todas as ferramentas necessárias para
             automatizar e escalar seu negócio de distribuição de água.
           </p>
         </div>
@@ -78,8 +113,8 @@ const FeaturesSection = () => {
         {/* Features Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {features.map((feature, index) => (
-            <Card 
-              key={feature.title} 
+            <Card
+              key={feature.title}
               variant="feature"
               className="group"
               style={{ animationDelay: `${index * 0.1}s` }}

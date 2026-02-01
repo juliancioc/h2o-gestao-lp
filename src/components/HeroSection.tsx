@@ -3,6 +3,12 @@ import { Button } from "@/components/ui/button";
 import heroBg from "@/assets/hero-bg.jpg";
 
 const HeroSection = () => {
+  const handleOpenWhatsApp = () => {
+    const whatsappUrl =
+      "https://wa.me/5574999215010?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20o%20H2O%20Gest%C3%A3o.";
+    window.open(whatsappUrl, "_blank");
+  };
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
       {/* Background Image with Overlay */}
@@ -41,34 +47,45 @@ const HeroSection = () => {
 
           {/* Subtitle */}
           <p className="text-lg md:text-xl text-primary-foreground/80 mb-10 max-w-2xl mx-auto animate-fade-up-delayed leading-relaxed">
-            Gerencie pedidos, estoque e financeiro em uma única plataforma. 
-            Simplifique sua operação e ofereça aos seus clientes uma experiência única.
+            Gerencie pedidos, estoque e financeiro em uma única plataforma.
+            Simplifique sua operação e ofereça aos seus clientes uma experiência
+            única.
           </p>
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-up-delayed">
-            <Button variant="hero" size="xl">
+            <Button variant="hero" size="xl" onClick={handleOpenWhatsApp}>
               Começar Gratuitamente
               <ArrowRight className="w-5 h-5" />
             </Button>
-            <Button variant="heroOutline" size="xl">
+            {/* <Button variant="heroOutline" size="xl">
               <Play className="w-5 h-5" />
               Ver Demonstração
-            </Button>
+            </Button> */}
           </div>
 
           {/* Stats */}
           <div className="grid grid-cols-3 gap-8 mt-16 pt-8 border-t border-primary-foreground/20 max-w-2xl mx-auto">
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-heading font-bold text-primary-foreground">500+</div>
-              <div className="text-sm text-primary-foreground/70">Distribuidoras</div>
+              <div className="text-3xl md:text-4xl font-heading font-bold text-primary-foreground">
+                500+
+              </div>
+              <div className="text-sm text-primary-foreground/70">
+                Distribuidoras
+              </div>
             </div>
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-heading font-bold text-primary-foreground">2M+</div>
-              <div className="text-sm text-primary-foreground/70">Pedidos/mês</div>
+              <div className="text-3xl md:text-4xl font-heading font-bold text-primary-foreground">
+                2M+
+              </div>
+              <div className="text-sm text-primary-foreground/70">
+                Pedidos/mês
+              </div>
             </div>
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-heading font-bold text-primary-foreground">99.9%</div>
+              <div className="text-3xl md:text-4xl font-heading font-bold text-primary-foreground">
+                99.9%
+              </div>
               <div className="text-sm text-primary-foreground/70">Uptime</div>
             </div>
           </div>
