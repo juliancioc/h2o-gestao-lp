@@ -33,7 +33,7 @@ const CTASection = () => {
             Pronto para transformar sua distribuidora?
           </h2>
           <p className="text-lg md:text-xl text-primary-foreground/80 mb-10 leading-relaxed">
-            Comece gratuitamente e veja como o H2O Gestão pode aumentar sua
+            Veja como o H2O Gestão pode aumentar sua
             eficiência e reduzir custos operacionais.
           </p>
 
@@ -43,7 +43,7 @@ const CTASection = () => {
               size="xl"
               onClick={handleOpenWhatsApp}
             >
-              Começar Teste Grátis
+              Quero contratar <ArrowRight className="ml-2" />
             </Button>
           </div>
         </div>
