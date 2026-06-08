@@ -28,7 +28,7 @@ const CTASection = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center max-w-3xl mx-auto">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-primary-foreground mb-6">
-            Pronto para transformar sua distribuidora?
+            Comece hoje por apenas R$ 29/mês
           </h2>
           <p className="text-lg md:text-xl text-primary-foreground/80 mb-10 leading-relaxed">
             Veja como o H2O Gestão pode aumentar sua eficiência e reduzir custos
