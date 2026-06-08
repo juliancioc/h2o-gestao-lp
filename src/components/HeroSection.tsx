@@ -4,9 +4,7 @@ import heroBg from "@/assets/hero-bg.jpg";
 
 const HeroSection = () => {
   const handleOpenWhatsApp = () => {
-    const whatsappUrl =
-      "https://wa.me/5574999215010?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20o%20H2O%20Gest%C3%A3o.";
-    window.open(whatsappUrl, "_blank");
+    window.open("https://app.h2ogestao.com.br/register", "_blank");
   };
 
   return (

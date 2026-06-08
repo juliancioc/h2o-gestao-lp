@@ -2,10 +2,8 @@ import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const CTASection = () => {
-  const handleOpenWhatsApp = () => {
-    const whatsappUrl =
-      "https://wa.me/5574999215010?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20o%20H2O%20Gest%C3%A3o.";
-    window.open(whatsappUrl, "_blank");
+  const handleContract = () => {
+    window.open("https://app.h2ogestao.com.br/register", "_blank");
   };
 
   return (
@@ -33,16 +31,12 @@ const CTASection = () => {
             Pronto para transformar sua distribuidora?
           </h2>
           <p className="text-lg md:text-xl text-primary-foreground/80 mb-10 leading-relaxed">
-            Veja como o H2O Gestão pode aumentar sua
-            eficiência e reduzir custos operacionais.
+            Veja como o H2O Gestão pode aumentar sua eficiência e reduzir custos
+            operacionais.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button
-              variant="heroOutline"
-              size="xl"
-              onClick={handleOpenWhatsApp}
-            >
+            <Button variant="heroOutline" size="xl" onClick={handleContract}>
               Quero contratar <ArrowRight className="ml-2" />
             </Button>
           </div>
