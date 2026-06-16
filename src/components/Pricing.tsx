@@ -1,4 +1,4 @@
-import { Check } from "lucide-react";
+import { Check, ShieldCheck, Lock, DatabaseBackup } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const PricingHighlight = () => {
@@ -48,9 +48,35 @@ const PricingHighlight = () => {
               Quero contratar
             </Button>
 
-            <p className="text-sm text-muted-foreground text-center">
-              Cancele quando quiser.
+            <div className="flex items-start gap-2 rounded-lg bg-primary/5 px-3 py-2">
+              <ShieldCheck className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+              <p className="text-sm text-foreground/80 text-left">
+                <span className="font-semibold text-foreground">
+                  Garantia de 7 dias.
+                </span>{" "}
+                Se não gostar, devolvemos 100% do seu dinheiro.
+              </p>
+            </div>
+
+            <p className="text-xs text-muted-foreground text-center">
+              Sem fidelidade · Cancele quando quiser
             </p>
+          </div>
+        </div>
+
+        {/* Security / Trust Band */}
+        <div className="mt-8 pt-6 border-t flex flex-col sm:flex-row items-center justify-center gap-x-8 gap-y-3 text-sm text-muted-foreground">
+          <div className="flex items-center gap-2">
+            <Lock className="w-4 h-4 text-primary" />
+            <span>Dados criptografados</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <DatabaseBackup className="w-4 h-4 text-primary" />
+            <span>Backup diário automático</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <ShieldCheck className="w-4 h-4 text-primary" />
+            <span>100% em conformidade com a LGPD</span>
           </div>
         </div>
       </div>

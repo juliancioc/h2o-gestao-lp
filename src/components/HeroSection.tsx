@@ -1,4 +1,4 @@
-import { ArrowRight, Play } from "lucide-react";
+import { ArrowRight, Play, ShieldCheck, MessageCircle, BadgeCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroBg from "@/assets/hero-bg.jpg";
 
@@ -62,29 +62,25 @@ const HeroSection = () => {
             </Button> */}
           </div>
 
-          {/* Stats */}
-          <div className="grid grid-cols-3 gap-8 mt-16 pt-8 border-t border-primary-foreground/20 max-w-2xl mx-auto">
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-heading font-bold text-primary-foreground">
-                500+
-              </div>
-              <div className="text-sm text-primary-foreground/70">
-                Distribuidoras
-              </div>
+          {/* Trust Signals */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-16 pt-8 border-t border-foreground/10 max-w-2xl mx-auto">
+            <div className="flex items-center justify-center gap-2 text-center rounded-xl bg-background/70 backdrop-blur-sm px-3 py-3 shadow-sm">
+              <ShieldCheck className="w-5 h-5 text-primary shrink-0" />
+              <span className="text-sm font-medium text-foreground/90">
+                Dados seguros e em conformidade com a LGPD
+              </span>
             </div>
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-heading font-bold text-primary-foreground">
-                2M+
-              </div>
-              <div className="text-sm text-primary-foreground/70">
-                Pedidos/mês
-              </div>
+            <div className="flex items-center justify-center gap-2 text-center rounded-xl bg-background/70 backdrop-blur-sm px-3 py-3 shadow-sm">
+              <MessageCircle className="w-5 h-5 text-primary shrink-0" />
+              <span className="text-sm font-medium text-foreground/90">
+                Suporte humano de verdade pelo WhatsApp
+              </span>
             </div>
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-heading font-bold text-primary-foreground">
-                99.9%
-              </div>
-              <div className="text-sm text-primary-foreground/70">Uptime</div>
+            <div className="flex items-center justify-center gap-2 text-center rounded-xl bg-background/70 backdrop-blur-sm px-3 py-3 shadow-sm">
+              <BadgeCheck className="w-5 h-5 text-primary shrink-0" />
+              <span className="text-sm font-medium text-foreground/90">
+                Sem fidelidade. Cancele quando quiser
+              </span>
             </div>
           </div>
         </div>

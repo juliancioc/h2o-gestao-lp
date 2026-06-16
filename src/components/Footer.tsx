@@ -1,39 +1,32 @@
+import { Link } from "react-router-dom";
 import Logo from "@/components/Logo";
+import { company } from "@/lib/company";
 
 const Footer = () => {
+  const year = new Date().getFullYear();
+
   const footerLinks = {
     produto: [
-      { label: "Funcionalidades", href: "#funcionalidades" },
-      // { label: "Planos", href: "#planos" },
-      { label: "Como Funciona", href: "#como-funciona" },
-      { label: "Integrações", href: "#" },
+      { label: "Funcionalidades", href: "/#funcionalidades", external: false },
+      { label: "Como Funciona", href: "/#como-funciona", external: false },
+      { label: "Depoimentos", href: "/#depoimentos", external: false },
     ],
-    recursos: [
-      { label: "Central de Ajuda", href: "#" },
-      { label: "Blog", href: "#" },
-      { label: "Webinars", href: "#" },
-      { label: "API Docs", href: "#" },
-    ],
-    empresa: [
-      { label: "Sobre Nós", href: "#" },
-      { label: "Carreiras", href: "#" },
-      {
-        label: "contato@h2ogestao.com.br",
-        href: "mailto:contato@h2ogestao.com.br",
-      },
-      { label: "Parceiros", href: "#" },
+    contato: [
+      { label: company.email, href: `mailto:${company.email}`, external: true },
+      { label: "WhatsApp", href: company.whatsappLink, external: true },
+      { label: "Instagram", href: company.instagram, external: true },
     ],
     legal: [
-      { label: "Privacidade", href: "#" },
-      { label: "Termos de Uso", href: "#" },
-      { label: "LGPD", href: "#" },
+      { label: "Política de Privacidade", to: "/privacidade" },
+      { label: "Termos de Uso", to: "/termos" },
+      { label: "LGPD", to: "/privacidade#lgpd" },
     ],
   };
 
   return (
     <footer className="bg-foreground text-primary-foreground">
       <div className="container mx-auto px-4 py-16">
-        <div className="grid grid-cols-2 md:grid-cols-6 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
           <div className="col-span-2">
             <div className="mb-4">
               <Logo />
@@ -42,10 +35,12 @@ const Footer = () => {
               O ERP completo para distribuidoras de água. Gerencie seu negócio
               de forma simples e eficiente.
             </p>
-            <div className="flex gap-4">
+            <div className="flex gap-4 mb-6">
               <a
                 target="_blank"
-                href="https://www.instagram.com/h2ogestao/"
+                rel="noopener noreferrer"
+                href={company.instagram}
+                aria-label="Instagram"
                 className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-primary-foreground/20 transition-colors"
               >
                 <svg
@@ -58,8 +53,10 @@ const Footer = () => {
                 </svg>
               </a>
               <a
-                href="https://www.youtube.com/@H2OGest%C3%A3o#"
+                href={company.youtube}
                 target="_blank"
+                rel="noopener noreferrer"
+                aria-label="YouTube"
                 className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-primary-foreground/20 transition-colors"
               >
                 <svg
@@ -75,23 +72,10 @@ const Footer = () => {
                   <path fill="#FFF" d="M9.6 15.5v-7l6.2 3.5-6.2 3.5z" />
                 </svg>
               </a>
-              <a
-                href="#"
-                className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-primary-foreground/20 transition-colors"
-              >
-                <svg
-                  className="w-5 h-5"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                  aria-hidden="true"
-                >
-                  <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" />
-                </svg>
-              </a>
             </div>
           </div>
 
-          {/* Links */}
+          {/* Produto */}
           <div>
             <h4 className="font-heading font-semibold mb-4">Produto</h4>
             <ul className="space-y-3">
@@ -108,14 +92,17 @@ const Footer = () => {
             </ul>
           </div>
 
+          {/* Contato */}
           <div>
-            <h4 className="font-heading font-semibold mb-4">Recursos</h4>
+            <h4 className="font-heading font-semibold mb-4">Contato</h4>
             <ul className="space-y-3">
-              {footerLinks.recursos.map((link) => (
+              {footerLinks.contato.map((link) => (
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors break-words"
                   >
                     {link.label}
                   </a>
@@ -124,43 +111,34 @@ const Footer = () => {
             </ul>
           </div>
 
-          <div>
-            <h4 className="font-heading font-semibold mb-4">Empresa</h4>
-            <ul className="space-y-3">
-              {footerLinks.empresa.map((link) => (
-                <li key={link.label}>
-                  <a
-                    href={link.href}
-                    className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors"
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
+          {/* Legal */}
           <div>
             <h4 className="font-heading font-semibold mb-4">Legal</h4>
             <ul className="space-y-3">
               {footerLinks.legal.map((link) => (
                 <li key={link.label}>
-                  <a
-                    href={link.href}
+                  <Link
+                    to={link.to}
                     className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
           </div>
         </div>
 
+        {/* Company Identification */}
+        <div className="border-t border-primary-foreground/10 mt-12 pt-8 text-sm text-primary-foreground/60 space-y-1">
+          <p>{company.razaoSocial}</p>
+          <p>CNPJ: {company.cnpj}</p>
+        </div>
+
         {/* Bottom Bar */}
-        <div className="border-t border-primary-foreground/10 mt-12 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="mt-6 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-primary-foreground/60">
-            © 2024 H2O Gestão. Todos os direitos reservados.
+            © {year} {company.fantasia}. Todos os direitos reservados.
           </p>
           <p className="text-sm text-primary-foreground/60">
             Feito com 💧 para distribuidoras de água

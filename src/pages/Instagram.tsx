@@ -87,7 +87,7 @@ export default function Instagram() {
               H2O Gestão
             </h1>
             <p className="text-sm mt-1" style={{ color: "hsl(195 100% 85%)" }}>
-              Software para distribuidoras de água
+              Sistema para distribuidoras de água
             </p>
           </div>
         </div>

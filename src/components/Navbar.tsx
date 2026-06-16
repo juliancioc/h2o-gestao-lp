@@ -89,7 +89,11 @@ const Navbar = () => {
                 >
                   Entrar
                 </Button>
-                <Button variant="default" className="w-full">
+                <Button
+                  variant="default"
+                  className="w-full"
+                  onClick={handleOpenWhatsApp}
+                >
                   Começar Agora
                 </Button>
               </div>

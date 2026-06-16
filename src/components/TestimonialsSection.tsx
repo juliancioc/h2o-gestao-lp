@@ -6,6 +6,7 @@ const testimonials = [
     name: "Carlos Almeida",
     role: "Proprietário",
     company: "Distribuidora Central Água",
+    location: "Juazeiro · BA",
     content: "Eu anotava tudo no caderno e sempre ficava na dúvida se o dinheiro batia. Com o H2O Gestão, hoje sei exatamente quanto vendi, quanto entrou no Pix e qual foi meu lucro no dia.",
     rating: 5,
   },
@@ -13,6 +14,7 @@ const testimonials = [
     name: "Ana Paula",
     role: "Administradora",
     company: "Água Boa Delivery",
+    location: "Petrolina · PE",
     content: "O controle de fiado e fechamento de caixa facilitou demais. Paramos de perder dinheiro e agora tenho tudo organizado no celular.",
     rating: 5,
   },
@@ -20,6 +22,7 @@ const testimonials = [
     name: "Marcos Pereira",
     role: "Proprietário",
     company: "Fonte Viva Distribuidora",
+    location: "Feira de Santana · BA",
     content: "Antes eu não sabia quanto realmente lucrava por galão. Hoje consigo ver os números claros e tomar decisão com mais segurança.",
     rating: 5,
   },
@@ -40,7 +43,7 @@ const TestimonialsSection = () => {
             <span className="text-gradient">clientes dizem</span>
           </h2>
           <p className="text-lg text-muted-foreground">
-            Centenas de distribuidoras já transformaram seus negócios com o H2O Gestão.
+            Donos de distribuidoras de água que trocaram o caderno pela organização do H2O Gestão.
           </p>
         </div>
 
@@ -72,6 +75,9 @@ const TestimonialsSection = () => {
                     </div>
                     <div className="text-sm text-muted-foreground">
                       {testimonial.role} · {testimonial.company}
+                    </div>
+                    <div className="text-xs text-muted-foreground/80">
+                      {testimonial.location}
                     </div>
                   </div>
                 </div>
