@@ -19,7 +19,6 @@ const Footer = () => {
     legal: [
       { label: "Política de Privacidade", to: "/privacidade" },
       { label: "Termos de Uso", to: "/termos" },
-      { label: "LGPD", to: "/privacidade#lgpd" },
     ],
   };
 
