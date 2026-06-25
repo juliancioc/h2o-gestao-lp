@@ -11,10 +11,18 @@ import {
   Wallet,
   Repeat,
   TrendingUp,
+  Receipt,
 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
 const features = [
+  {
+    icon: Receipt,
+    title: "Emissão de Nota Fiscal",
+    description:
+      "Emita notas fiscais direto da plataforma e mantenha sua distribuidora em dia com o fisco.",
+    highlight: true,
+  },
   {
     icon: Package,
     title: "Gestão de Pedidos",
@@ -116,9 +124,16 @@ const FeaturesSection = () => {
             <Card
               key={feature.title}
               variant="feature"
-              className="group"
+              className={`group relative ${
+                feature.highlight ? "border-primary shadow-glow" : ""
+              }`}
               style={{ animationDelay: `${index * 0.1}s` }}
             >
+              {feature.highlight && (
+                <div className="absolute -top-3 left-6 px-3 py-0.5 bg-gradient-to-r from-primary to-secondary text-primary-foreground text-xs font-semibold rounded-full shadow-medium">
+                  Novidade
+                </div>
+              )}
               <CardContent className="p-6">
                 <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                   <feature.icon className="w-6 h-6 text-primary-foreground" />

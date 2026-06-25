@@ -9,8 +9,9 @@ const Navbar = () => {
   const navLinks = [
     { label: "Funcionalidades", href: "#funcionalidades" },
     { label: "Como funciona", href: "#como-funciona" },
-    // { label: "Planos", href: "#planos" },
+    { label: "Planos", href: "#planos" },
     { label: "Depoimentos", href: "#depoimentos" },
+    { label: "FAQ", href: "#faq" },
   ];
 
   const handleSignIn = () => {

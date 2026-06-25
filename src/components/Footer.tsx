@@ -10,6 +10,7 @@ const Footer = () => {
       { label: "Funcionalidades", href: "/#funcionalidades", external: false },
       { label: "Como Funciona", href: "/#como-funciona", external: false },
       { label: "Depoimentos", href: "/#depoimentos", external: false },
+      { label: "FAQ", href: "/#faq", external: false },
     ],
     contato: [
       { label: company.email, href: `mailto:${company.email}`, external: true },

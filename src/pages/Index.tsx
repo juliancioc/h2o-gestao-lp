@@ -7,7 +7,8 @@ import TestimonialsSection from "@/components/TestimonialsSection";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
 import { MessageCircle } from "lucide-react";
-import PricingHighlight from "@/components/Pricing";
+import PlansSection from "@/components/PlansSection";
+import FAQSection from "@/components/FAQSection";
 
 const Index = () => {
   return (
@@ -15,11 +16,12 @@ const Index = () => {
       <Navbar />
       <main>
         <HeroSection />
-        <PricingHighlight />
         <FeaturesSection />
         <HowItWorksSection />
+        <PlansSection />
         {/* <PricingSection /> */}
         <TestimonialsSection />
+        <FAQSection />
         <CTASection />
       </main>
       <Footer />
