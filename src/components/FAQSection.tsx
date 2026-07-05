@@ -7,6 +7,11 @@ import {
 
 const faqs = [
   {
+    question: "A loja online está inclusa nos planos?",
+    answer:
+      "Sim! A loja online própria está inclusa em todos os planos, sem taxa por pedido e sem comissão de marketplace. Sua distribuidora ganha um link exclusivo para compartilhar com os clientes, e cada pedido feito na loja cai direto no sistema.",
+  },
+  {
     question: "O H2O Gestão emite nota fiscal?",
     answer:
       "Sim! A emissão de nota fiscal está disponível no plano Premium, direto pela plataforma. Você emite suas notas sem precisar de outro sistema e mantém sua distribuidora em dia com o fisco.",

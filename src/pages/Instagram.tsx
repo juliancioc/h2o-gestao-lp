@@ -1,4 +1,4 @@
-import { ExternalLink, Globe } from "lucide-react";
+import { ExternalLink, Globe, Store } from "lucide-react";
 import logo from "@/assets/logo.png";
 
 const WhatsAppIcon = () => (
@@ -15,6 +15,14 @@ const links = [
     href: "https://wa.me/5574999215010",
     icon: <WhatsAppIcon />,
     variant: "whatsapp",
+  },
+  {
+    id: "demo-store",
+    label: "Ver Loja Online de Demonstração",
+    description: "Conheça a loja online que sua distribuidora pode ter",
+    href: "https://app.h2ogestao.com.br/loja/blue-distribuidora",
+    icon: <Store className="w-5 h-5" />,
+    variant: "primary",
   },
   {
     id: "website",
@@ -158,6 +166,8 @@ export default function Instagram() {
         {/* Feature pills */}
         <div className="flex flex-wrap justify-center gap-2">
           {[
+            "Loja online",
+            "Emissão de nota fiscal",
             "Dashboard em tempo real",
             "Controle de vendas",
             "Gestão de clientes",

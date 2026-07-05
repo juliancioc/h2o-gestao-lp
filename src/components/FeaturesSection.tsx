@@ -1,27 +1,30 @@
 import {
-  Truck,
   Package,
   CreditCard,
   Users,
   BarChart3,
-  MapPin,
-  Bell,
-  Smartphone,
-  Archive,  
+  Archive,
   Wallet,
   Repeat,
   TrendingUp,
   Receipt,
+  Store,
 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
 const features = [
   {
+    icon: Store,
+    title: "Loja Online",
+    description:
+      "Sua loja própria na internet: o cliente monta o pedido e ele cai direto no sistema, pronto para a entrega.",
+    highlight: true,
+  },
+  {
     icon: Receipt,
     title: "Emissão de Nota Fiscal",
     description:
       "Emita notas fiscais direto da plataforma e mantenha sua distribuidora em dia com o fisco.",
-    highlight: true,
   },
   {
     icon: Package,
@@ -29,11 +32,6 @@ const features = [
     description:
       "Crie, acompanhe e gerencie pedidos de forma simples e eficiente.",
   },
-  // {
-  //   icon: Truck,
-  //   title: "Roteirização Inteligente",
-  //   description: "Otimize rotas de entrega automaticamente. Reduza custos com combustível e tempo.",
-  // },
   {
     icon: CreditCard,
     title: "Financeiro Completo",
@@ -52,21 +50,6 @@ const features = [
     description:
       "Visualize métricas importantes em tempo real. Tome decisões baseadas em dados.",
   },
-  // {
-  //   icon: MapPin,
-  //   title: "Rastreamento GPS",
-  //   description: "Acompanhe seus entregadores em tempo real. Ofereça transparência aos clientes.",
-  // },
-  // {
-  //   icon: Bell,
-  //   title: "Notificações Automáticas",
-  //   description: "Avise clientes sobre status do pedido via SMS, WhatsApp ou push notification.",
-  // },
-  // {
-  //   icon: Smartphone,
-  //   title: "App para Entregadores",
-  //   description: "Aplicativo mobile completo para sua equipe de entrega gerenciar pedidos.",
-  // },
   {
     icon: Archive,
     title: "Controle de Galões",

@@ -8,6 +8,7 @@ const Navbar = () => {
 
   const navLinks = [
     { label: "Funcionalidades", href: "#funcionalidades" },
+    { label: "Loja Online", href: "#loja-online" },
     { label: "Como funciona", href: "#como-funciona" },
     { label: "Planos", href: "#planos" },
     { label: "Depoimentos", href: "#depoimentos" },
@@ -22,7 +23,7 @@ const Navbar = () => {
     );
   };
 
-  const handleOpenWhatsApp = () => {
+  const handleOpenRegister = () => {
     window.open("https://app.h2ogestao.com.br/register", "_blank");
   };
 
@@ -49,7 +50,7 @@ const Navbar = () => {
             <Button variant="ghost" size="sm" onClick={handleSignIn}>
               Entrar
             </Button>
-            <Button variant="default" size="sm" onClick={handleOpenWhatsApp}>
+            <Button variant="default" size="sm" onClick={handleOpenRegister}>
               Começar Agora
             </Button>
           </div>
@@ -93,7 +94,7 @@ const Navbar = () => {
                 <Button
                   variant="default"
                   className="w-full"
-                  onClick={handleOpenWhatsApp}
+                  onClick={handleOpenRegister}
                 >
                   Começar Agora
                 </Button>

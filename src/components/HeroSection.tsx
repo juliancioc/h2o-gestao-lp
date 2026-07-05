@@ -1,9 +1,9 @@
-import { ArrowRight, Play, ShieldCheck, MessageCircle, BadgeCheck, Receipt } from "lucide-react";
+import { ArrowRight, ShieldCheck, MessageCircle, BadgeCheck, Receipt } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroBg from "@/assets/hero-bg.jpg";
 
 const HeroSection = () => {
-  const handleOpenWhatsApp = () => {
+  const handleOpenRegister = () => {
     window.open("https://app.h2ogestao.com.br/register", "_blank");
   };
 
@@ -46,20 +46,16 @@ const HeroSection = () => {
           {/* Subtitle */}
           <p className="text-lg md:text-xl text-primary-foreground/80 mb-10 max-w-2xl mx-auto animate-fade-up-delayed leading-relaxed">
             Gerencie pedidos, estoque, financeiro e emissão de notas fiscais em
-            uma única plataforma. Simplifique sua operação e ofereça aos seus
-            clientes uma experiência única.
+            uma única plataforma — com loja online própria para seus clientes
+            pedirem direto de você.
           </p>
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-up-delayed">
-            <Button variant="hero" size="xl" onClick={handleOpenWhatsApp}>
+            <Button variant="hero" size="xl" onClick={handleOpenRegister}>
               Começar Agora
               <ArrowRight className="w-5 h-5" />
             </Button>
-            {/* <Button variant="heroOutline" size="xl">
-              <Play className="w-5 h-5" />
-              Ver Demonstração
-            </Button> */}
           </div>
 
           {/* Trust Signals */}

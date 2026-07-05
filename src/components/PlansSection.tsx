@@ -1,4 +1,4 @@
-import { Check, FileText, Sparkles } from "lucide-react";
+import { Check, FileText, Sparkles, Store } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -14,6 +14,7 @@ const handleContract = () => {
 };
 
 const basicFeatures = [
+  "Loja online própria",
   "Gestão de Pedidos",
   "Financeiro Completo",
   "Gestão de Clientes",
@@ -111,18 +112,21 @@ const PlansSection = () => {
                 <ul className="space-y-3">
                   {plan.features.map((feature) => {
                     const isNota = feature === "Emissão de nota fiscal";
+                    const isLoja = feature === "Loja online própria";
                     return (
                       <li key={feature} className="flex items-start gap-3">
                         <div className="w-5 h-5 rounded-full bg-accent flex items-center justify-center flex-shrink-0 mt-0.5">
                           {isNota ? (
                             <FileText className="w-3 h-3 text-primary" />
+                          ) : isLoja ? (
+                            <Store className="w-3 h-3 text-primary" />
                           ) : (
                             <Check className="w-3 h-3 text-primary" />
                           )}
                         </div>
                         <span
                           className={`text-muted-foreground ${
-                            isNota ? "font-semibold text-foreground" : ""
+                            isNota || isLoja ? "font-semibold text-foreground" : ""
                           }`}
                         >
                           {feature}
