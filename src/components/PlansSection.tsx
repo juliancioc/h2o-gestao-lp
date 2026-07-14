@@ -1,4 +1,5 @@
-import { Check, FileText, Sparkles, Store } from "lucide-react";
+import { useState } from "react";
+import { Check, FileText, Sparkles, Store, Truck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -9,48 +10,74 @@ import {
   CardFooter,
 } from "@/components/ui/card";
 
-const handleContract = () => {
-  window.open("https://app.h2ogestao.com.br/register", "_blank");
+// Plano + periodicidade seguem como params: o app pré-seleciona ambos na
+// tela de pagamento pós-cadastro.
+const handleContract = (plan: string, billing: "mensal" | "anual") => {
+  window.open(
+    `https://app.h2ogestao.com.br/register?plan=${plan}&billing=${billing}`,
+    "_blank"
+  );
 };
 
-const basicFeatures = [
-  "Loja online própria",
-  "Gestão de Pedidos",
-  "Financeiro Completo",
-  "Gestão de Clientes",
-  "Relatórios e Dashboards",
-  "Controle de Galões",
-  "Fechamento de Caixa Diário",
-  "Gestão de Fiado",
-  "Análise de Lucro por Galão",
+const essencialFeatures = [
+  "Até 2 usuários",
+  "Gestão de vendas e pedidos",
+  "Financeiro completo",
+  "Fechamento de caixa diário",
+  "Gestão de clientes e fiado",
+  "Controle de galões",
+  "Relatórios e dashboards",
+  "Análise de lucro por galão",
 ];
 
-const premiumFeatures = [
-  "Tudo do plano Básico",
+const operacaoFeatures = [
+  "Tudo do plano Essencial",
+  "Até 3 usuários (R$ 19/mês por usuário extra)",
+  "Loja online própria",
+  "Pedidos direto no seu WhatsApp",
+  "Painel de entregas do dia",
+  "Taxas de entrega por bairro",
   "Emissão de nota fiscal",
   "Suporte prioritário",
 ];
 
+// Features destacadas nos cards (ícone próprio + texto em evidência)
+const featureIcons: Record<string, typeof Check> = {
+  "Emissão de nota fiscal": FileText,
+  "Loja online própria": Store,
+  "Painel de entregas do dia": Truck,
+};
+
 const plans = [
   {
-    name: "Básico",
-    description: "Tudo que você precisa para gerir sua distribuidora",
-    price: "29",
+    name: "Essencial",
+    slug: "essencial",
+    description: "Controle completo da sua distribuidora no dia a dia",
+    monthlyPrice: 59,
+    priceNote: null,
     popular: false,
-    features: basicFeatures,
+    features: essencialFeatures,
     highlight: false,
   },
   {
-    name: "Premium",
-    description: "O Básico completo + emissão de nota fiscal",
-    price: "59",
+    name: "Operação",
+    slug: "operacao",
+    description: "Para vender e entregar mais: loja online + entregas",
+    monthlyPrice: 99,
+    priceNote: "Preço de lançamento — assine agora e trave esse valor",
     popular: true,
-    features: premiumFeatures,
+    features: operacaoFeatures,
     highlight: true,
   },
 ];
 
+// Anual = 12 meses pelo preço de 10 (2 mensalidades de economia)
+const annualPrice = (monthly: number) => monthly * 10;
+
 const PlansSection = () => {
+  const [billing, setBilling] = useState<"monthly" | "annual">("monthly");
+  const isAnnual = billing === "annual";
+
   return (
     <section id="planos" className="py-24 bg-background relative overflow-hidden">
       {/* Decorative Background */}
@@ -67,9 +94,38 @@ const PlansSection = () => {
             <span className="text-gradient">ideal para você</span>
           </h2>
           <p className="text-lg text-muted-foreground">
-            Comece com o essencial e evolua para a emissão de nota fiscal quando
-            precisar. Sem fidelidade, cancele quando quiser.
+            Comece pelo Essencial e destrave a loja online e as entregas quando
+            quiser vender mais. Sem fidelidade, cancele quando quiser.
           </p>
+
+          {/* Toggle Mensal / Anual */}
+          <div className="mt-8 inline-flex items-center rounded-full bg-accent p-1">
+            <button
+              type="button"
+              onClick={() => setBilling("monthly")}
+              className={`px-5 py-2 rounded-full text-sm font-medium transition-colors ${
+                !isAnnual
+                  ? "bg-background text-foreground shadow-medium"
+                  : "text-muted-foreground"
+              }`}
+            >
+              Mensal
+            </button>
+            <button
+              type="button"
+              onClick={() => setBilling("annual")}
+              className={`px-5 py-2 rounded-full text-sm font-medium transition-colors ${
+                isAnnual
+                  ? "bg-background text-foreground shadow-medium"
+                  : "text-muted-foreground"
+              }`}
+            >
+              Anual
+              <span className="ml-2 rounded-full bg-gradient-to-r from-primary to-secondary px-2 py-0.5 text-xs font-semibold text-primary-foreground">
+                2 meses grátis
+              </span>
+            </button>
+          </div>
         </div>
 
         {/* Pricing Cards */}
@@ -104,29 +160,37 @@ const PlansSection = () => {
                 <div className="text-center mb-8">
                   <span className="text-sm text-muted-foreground">R$ </span>
                   <span className="text-5xl font-heading font-bold text-foreground">
-                    {plan.price}
+                    {isAnnual ? annualPrice(plan.monthlyPrice) : plan.monthlyPrice}
                   </span>
-                  <span className="text-muted-foreground">/mês</span>
+                  <span className="text-muted-foreground">
+                    {isAnnual ? "/ano" : "/mês"}
+                  </span>
+                  {isAnnual ? (
+                    <p className="text-xs text-primary font-medium mt-2">
+                      12 meses pelo preço de 10 — economia de R${" "}
+                      {plan.monthlyPrice * 2}
+                    </p>
+                  ) : (
+                    plan.priceNote && (
+                      <p className="text-xs text-primary font-medium mt-2">
+                        {plan.priceNote}
+                      </p>
+                    )
+                  )}
                 </div>
 
                 <ul className="space-y-3">
                   {plan.features.map((feature) => {
-                    const isNota = feature === "Emissão de nota fiscal";
-                    const isLoja = feature === "Loja online própria";
+                    const FeatureIcon = featureIcons[feature] ?? Check;
+                    const isHighlighted = feature in featureIcons;
                     return (
                       <li key={feature} className="flex items-start gap-3">
                         <div className="w-5 h-5 rounded-full bg-accent flex items-center justify-center flex-shrink-0 mt-0.5">
-                          {isNota ? (
-                            <FileText className="w-3 h-3 text-primary" />
-                          ) : isLoja ? (
-                            <Store className="w-3 h-3 text-primary" />
-                          ) : (
-                            <Check className="w-3 h-3 text-primary" />
-                          )}
+                          <FeatureIcon className="w-3 h-3 text-primary" />
                         </div>
                         <span
                           className={`text-muted-foreground ${
-                            isNota || isLoja ? "font-semibold text-foreground" : ""
+                            isHighlighted ? "font-semibold text-foreground" : ""
                           }`}
                         >
                           {feature}
@@ -142,7 +206,9 @@ const PlansSection = () => {
                   variant={plan.highlight ? "hero" : "outline"}
                   size="lg"
                   className="w-full"
-                  onClick={handleContract}
+                  onClick={() =>
+                    handleContract(plan.slug, isAnnual ? "anual" : "mensal")
+                  }
                 >
                   Quero contratar
                 </Button>

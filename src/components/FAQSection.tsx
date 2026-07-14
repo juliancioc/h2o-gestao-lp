@@ -9,12 +9,12 @@ const faqs = [
   {
     question: "A loja online está inclusa nos planos?",
     answer:
-      "Sim! A loja online própria está inclusa em todos os planos, sem taxa por pedido e sem comissão de marketplace. Sua distribuidora ganha um link exclusivo para compartilhar com os clientes, e cada pedido feito na loja cai direto no sistema.",
+      "A loja online própria faz parte do plano Operação, sem taxa por pedido e sem comissão de marketplace. Sua distribuidora ganha um link exclusivo para compartilhar com os clientes, e cada pedido feito na loja cai direto no sistema e no painel de entregas.",
   },
   {
     question: "O H2O Gestão emite nota fiscal?",
     answer:
-      "Sim! A emissão de nota fiscal está disponível no plano Premium, direto pela plataforma. Você emite suas notas sem precisar de outro sistema e mantém sua distribuidora em dia com o fisco.",
+      "Sim! A emissão de nota fiscal está disponível no plano Operação, direto pela plataforma. Você emite suas notas sem precisar de outro sistema e mantém sua distribuidora em dia com o fisco.",
   },
   {
     question: "Preciso instalar algum programa?",
@@ -27,9 +27,9 @@ const faqs = [
       "Não há fidelidade nem taxa de adesão. Você paga a mensalidade e pode cancelar quando quiser.",
   },
   {
-    question: "Qual a diferença entre o plano Básico e o Premium?",
+    question: "Qual a diferença entre o plano Essencial e o Operação?",
     answer:
-      "O plano Básico (R$ 29/mês) inclui todas as funcionalidades de gestão da distribuidora. O Premium (R$ 59/mês) inclui tudo do Básico mais a emissão de nota fiscal e suporte prioritário.",
+      "O Essencial (R$ 59/mês, até 2 usuários) inclui toda a gestão da distribuidora: vendas, caixa, estoque, clientes, fiado e relatórios. O Operação (R$ 99/mês, até 3 usuários) inclui tudo do Essencial mais a loja online própria, o painel de entregas do dia, a emissão de nota fiscal e suporte prioritário. Usuários extras custam R$ 19/mês cada. Os dois planos têm opção anual com 2 meses grátis — 12 meses pelo preço de 10.",
   },
   {
     question: "Meus dados estão seguros?",

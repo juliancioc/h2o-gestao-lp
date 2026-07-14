@@ -20,7 +20,11 @@ const Termos = () => {
 
       <h2 id="assinatura">2. Assinatura e pagamento</h2>
       <ul>
-        <li>O serviço é oferecido por assinatura mensal de R$ 29,00.</li>
+        <li>
+          O serviço é oferecido por assinatura mensal, conforme o plano
+          contratado (valores vigentes na página de planos no momento da
+          contratação).
+        </li>
         <li>Não há taxa de adesão nem fidelidade.</li>
         <li>
           Você pode cancelar a qualquer momento, sem multa, deixando de ser
