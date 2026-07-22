@@ -57,6 +57,7 @@ const plans = [
     priceNote: null,
     popular: false,
     features: essencialFeatures,
+    footnote: null,
     highlight: false,
   },
   {
@@ -67,6 +68,8 @@ const plans = [
     priceNote: "Preço de lançamento — assine agora e trave esse valor",
     popular: true,
     features: operacaoFeatures,
+    footnote:
+      "A emissão de nota fiscal inclui até 40 notas por mês. Notas excedentes: R$ 1,00 por nota.",
     highlight: true,
   },
 ];
@@ -199,6 +202,12 @@ const PlansSection = () => {
                     );
                   })}
                 </ul>
+
+                {plan.footnote && (
+                  <p className="mt-6 text-[11px] leading-snug text-muted-foreground">
+                    {plan.footnote}
+                  </p>
+                )}
               </CardContent>
 
               <CardFooter className="pt-4">
