@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Check, FileText, Sparkles, Store, Truck } from "lucide-react";
+import { Check, FileText, Smartphone, Sparkles, Store, Truck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -28,6 +28,7 @@ const essencialFeatures = [
   "Controle de galões",
   "Relatórios e dashboards",
   "Análise de lucro por galão",
+  "Aplicativo Android com o resumo do dia",
 ];
 
 const operacaoFeatures = [
@@ -36,6 +37,7 @@ const operacaoFeatures = [
   "Loja online própria",
   "Pedidos direto no seu WhatsApp",
   "Painel de entregas do dia",
+  "Aplicativo Android para os entregadores",
   "Taxas de entrega por bairro",
   "Emissão de nota fiscal",
   "Suporte prioritário",
@@ -46,6 +48,8 @@ const featureIcons: Record<string, typeof Check> = {
   "Emissão de nota fiscal": FileText,
   "Loja online própria": Store,
   "Painel de entregas do dia": Truck,
+  "Aplicativo Android com o resumo do dia": Smartphone,
+  "Aplicativo Android para os entregadores": Smartphone,
 };
 
 const plans = [
@@ -69,7 +73,7 @@ const plans = [
     popular: true,
     features: operacaoFeatures,
     footnote:
-      "A emissão de nota fiscal inclui até 40 notas por mês. Notas excedentes: R$ 1,00 por nota.",
+      "A emissão de nota fiscal inclui até 40 notas por mês. Precisando de mais, emissões extras podem ser contratadas por R$ 1,00 cada.",
     highlight: true,
   },
 ];
