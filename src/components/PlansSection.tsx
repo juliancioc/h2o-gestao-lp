@@ -1,5 +1,13 @@
 import { useState } from "react";
-import { Check, FileText, Smartphone, Sparkles, Store, Truck } from "lucide-react";
+import {
+  Check,
+  CreditCard,
+  FileText,
+  Smartphone,
+  Sparkles,
+  Store,
+  Truck,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -36,6 +44,7 @@ const operacaoFeatures = [
   "Até 3 usuários (R$ 19/mês por usuário extra)",
   "Loja online própria",
   "Pedidos direto no seu WhatsApp",
+  "Integração com Mercado Pago",
   "Painel de entregas do dia",
   "Aplicativo Android para os entregadores",
   "Taxas de entrega por bairro",
@@ -50,6 +59,7 @@ const featureIcons: Record<string, typeof Check> = {
   "Painel de entregas do dia": Truck,
   "Aplicativo Android com o resumo do dia": Smartphone,
   "Aplicativo Android para os entregadores": Smartphone,
+  "Integração com Mercado Pago": CreditCard,
 };
 
 const plans = [
