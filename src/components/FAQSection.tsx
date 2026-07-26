@@ -27,9 +27,9 @@ const faqs = [
       "Não há fidelidade nem taxa de adesão. Você paga a mensalidade e pode cancelar quando quiser.",
   },
   {
-    question: "Qual a diferença entre o plano Essencial e o Operação?",
+    question: "Qual a diferença entre os planos?",
     answer:
-      "O Essencial (R$ 59/mês, até 2 usuários) inclui toda a gestão da distribuidora: vendas, caixa, estoque, clientes, fiado e relatórios. O Operação (R$ 99/mês, até 3 usuários) inclui tudo do Essencial mais a loja online própria, o painel de entregas do dia, a emissão de nota fiscal e suporte prioritário. Usuários extras custam R$ 19/mês cada. Os dois planos têm opção anual com 2 meses grátis — 12 meses pelo preço de 10.",
+      "O Essencial (R$ 59/mês, até 2 usuários) inclui toda a gestão da distribuidora: vendas, caixa, estoque, clientes, fiado e relatórios. O Operação (R$ 99/mês, até 5 usuários) inclui tudo do Essencial mais a loja online própria, o painel de entregas do dia e a emissão de nota fiscal. O Gestão (R$ 249/mês, até 8 usuários) inclui tudo do Operação mais entregadores ilimitados no aplicativo, até 100 notas fiscais por mês, onboarding assistido, importação dos seus dados e suporte prioritário. Usuários extras custam R$ 19/mês cada. Os três planos têm opção anual com 2 meses grátis, 12 meses pelo preço de 10.",
   },
   {
     question: "Meus dados estão seguros?",

@@ -3,10 +3,12 @@ import {
   Check,
   CreditCard,
   FileText,
+  LifeBuoy,
   Smartphone,
   Sparkles,
   Store,
   Truck,
+  Upload,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -41,7 +43,7 @@ const essencialFeatures = [
 
 const operacaoFeatures = [
   "Tudo do plano Essencial",
-  "Até 3 usuários (R$ 19/mês por usuário extra)",
+  "Até 5 usuários (R$ 19/mês por usuário extra)",
   "Loja online própria",
   "Pedidos direto no seu WhatsApp",
   "Integração com Mercado Pago",
@@ -49,17 +51,30 @@ const operacaoFeatures = [
   "Aplicativo Android para os entregadores",
   "Taxas de entrega por bairro",
   "Emissão de nota fiscal",
+];
+
+const gestaoFeatures = [
+  "Tudo do plano Operação",
+  "Até 8 usuários (R$ 19/mês por usuário extra)",
+  "Entregadores ilimitados no aplicativo",
+  "Até 100 notas fiscais por mês",
+  "Onboarding assistido",
+  "Importação dos seus dados",
   "Suporte prioritário",
 ];
 
 // Features destacadas nos cards (ícone próprio + texto em evidência)
 const featureIcons: Record<string, typeof Check> = {
   "Emissão de nota fiscal": FileText,
+  "Até 100 notas fiscais por mês": FileText,
   "Loja online própria": Store,
   "Painel de entregas do dia": Truck,
   "Aplicativo Android com o resumo do dia": Smartphone,
   "Aplicativo Android para os entregadores": Smartphone,
+  "Entregadores ilimitados no aplicativo": Truck,
   "Integração com Mercado Pago": CreditCard,
+  "Onboarding assistido": LifeBuoy,
+  "Importação dos seus dados": Upload,
 };
 
 const plans = [
@@ -69,7 +84,7 @@ const plans = [
     description: "Controle completo da sua distribuidora no dia a dia",
     monthlyPrice: 59,
     priceNote: null,
-    popular: false,
+    badge: null,
     features: essencialFeatures,
     footnote: null,
     highlight: false,
@@ -79,12 +94,24 @@ const plans = [
     slug: "operacao",
     description: "Para vender e entregar mais: loja online + entregas",
     monthlyPrice: 99,
-    priceNote: "Preço de lançamento — assine agora e trave esse valor",
-    popular: true,
+    priceNote: "Assine agora e garanta esse valor",
+    badge: "Mais vendido",
     features: operacaoFeatures,
     footnote:
       "A emissão de nota fiscal inclui até 40 notas por mês. Precisando de mais, emissões extras podem ser contratadas por R$ 1,00 cada.",
     highlight: true,
+  },
+  {
+    name: "Gestão",
+    slug: "gestao",
+    description: "Para equipes maiores: mais usuários, onboarding e suporte",
+    monthlyPrice: 249,
+    priceNote: null,
+    badge: "Mais completo",
+    features: gestaoFeatures,
+    footnote:
+      "Emissões acima de 100 notas no mês podem ser contratadas por R$ 1,00 cada. A importação dos seus dados e o onboarding são feitos pela nossa equipe na contratação.",
+    highlight: false,
   },
 ];
 
@@ -146,18 +173,18 @@ const PlansSection = () => {
         </div>
 
         {/* Pricing Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {plans.map((plan) => (
             <Card
               key={plan.name}
               variant="pricing"
               className={`relative ${
-                plan.highlight ? "border-primary shadow-glow md:scale-105" : ""
+                plan.highlight ? "border-primary shadow-glow lg:scale-105" : ""
               }`}
             >
-              {plan.popular && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-gradient-to-r from-primary to-secondary text-primary-foreground text-sm font-medium rounded-full shadow-medium">
-                  Mais Completo
+              {plan.badge && (
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2 whitespace-nowrap px-4 py-1 bg-gradient-to-r from-primary to-secondary text-primary-foreground text-sm font-medium rounded-full shadow-medium">
+                  {plan.badge}
                 </div>
               )}
 
