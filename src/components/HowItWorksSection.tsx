@@ -58,15 +58,18 @@ const HowItWorksSection = () => {
                 <div className="hidden lg:block absolute top-12 left-full w-full h-0.5 bg-gradient-to-r from-primary/50 to-transparent z-0" />
               )}
 
-              <div className="relative z-10">
-                {/* Number Badge */}
-                <div className="w-24 h-24 rounded-3xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center mb-6 group-hover:scale-105 transition-transform duration-300 shadow-medium">
-                  <step.icon className="w-10 h-10 text-primary-foreground" />
-                </div>
+              <div className="relative z-10 text-center md:text-left">
+                {/* Icon + Number Badge: o número fica junto do próprio ícone;
+                    no canto direito ele encostava no passo seguinte */}
+                <div className="flex items-center justify-center md:justify-start gap-4 mb-6">
+                  <div className="w-24 h-24 shrink-0 rounded-3xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center group-hover:scale-105 transition-transform duration-300 shadow-medium">
+                    <step.icon className="w-10 h-10 text-primary-foreground" />
+                  </div>
 
-                <span className="text-5xl font-heading font-bold text-muted-foreground/20 absolute top-0 right-0">
-                  {step.number}
-                </span>
+                  <span className="hidden md:block text-5xl leading-none font-heading font-bold text-muted-foreground/20">
+                    {step.number}
+                  </span>
+                </div>
 
                 <h3 className="text-xl font-heading font-semibold text-foreground mb-3">
                   {step.title}
