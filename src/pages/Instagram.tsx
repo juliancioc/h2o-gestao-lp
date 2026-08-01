@@ -12,7 +12,7 @@ const links = [
     id: "whatsapp",
     label: "Falar pelo WhatsApp",
     description: "Tire suas dúvidas conosco",
-    href: "https://wa.me/5574999215010",
+    href: "https://wa.me/5574981132047",
     icon: <WhatsAppIcon />,
     variant: "whatsapp",
   },

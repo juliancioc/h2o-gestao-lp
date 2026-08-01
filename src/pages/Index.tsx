@@ -26,7 +26,7 @@ const Index = () => {
       <Footer />
 
       <a
-        href="https://wa.me/5574999215010"
+        href="https://wa.me/5574981132047"
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-5 right-5 z-50 flex h-12 w-12 items-center justify-center rounded-full bg-green-500 text-white shadow-lg hover:bg-green-600"
