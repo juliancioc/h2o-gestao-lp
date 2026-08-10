@@ -9,6 +9,8 @@ import Instagram from "./pages/Instagram";
 import Privacidade from "./pages/Privacidade";
 import Termos from "./pages/Termos";
 import ProgramaParceiros from "./pages/ProgramaParceiros";
+import FerramentasIndex from "./pages/ferramentas/Index";
+import CustoDoGalao from "./pages/ferramentas/CustoDoGalao";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -25,6 +27,11 @@ const App = () => (
           <Route path="/bio" element={<Instagram />} />
           <Route path="/privacidade" element={<Privacidade />} />
           <Route path="/termos" element={<Termos />} />
+          <Route path="/ferramentas" element={<FerramentasIndex />} />
+          <Route
+            path="/ferramentas/custo-do-galao"
+            element={<CustoDoGalao />}
+          />
           {/* Página não listada: acesso só por link direto (noindex) */}
           <Route
             path="/programa-parceiros-h2o-2026"

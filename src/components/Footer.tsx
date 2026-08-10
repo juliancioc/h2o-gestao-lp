@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import Logo from "@/components/Logo";
 import { company } from "@/lib/company";
+import { availableTools } from "@/lib/tools";
 
 const Footer = () => {
   const year = new Date().getFullYear();
@@ -11,6 +12,13 @@ const Footer = () => {
       { label: "Como Funciona", href: "/#como-funciona", external: false },
       { label: "Depoimentos", href: "/#depoimentos", external: false },
       { label: "FAQ", href: "/#faq", external: false },
+    ],
+    ferramentas: [
+      ...availableTools.map((tool) => ({
+        label: tool.shortTitle,
+        to: tool.path,
+      })),
+      { label: "Ver todas", to: "/ferramentas" },
     ],
     contato: [
       { label: company.email, href: `mailto:${company.email}`, external: true },
@@ -26,7 +34,7 @@ const Footer = () => {
   return (
     <footer className="bg-foreground text-primary-foreground">
       <div className="container mx-auto px-4 py-16">
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-6 gap-8">
           <div className="col-span-2">
             <div className="mb-4">
               <Logo />
@@ -87,6 +95,23 @@ const Footer = () => {
                   >
                     {link.label}
                   </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Ferramentas */}
+          <div>
+            <h4 className="font-heading font-semibold mb-4">Ferramentas</h4>
+            <ul className="space-y-3">
+              {footerLinks.ferramentas.map((link) => (
+                <li key={link.label}>
+                  <Link
+                    to={link.to}
+                    className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors"
+                  >
+                    {link.label}
+                  </Link>
                 </li>
               ))}
             </ul>
