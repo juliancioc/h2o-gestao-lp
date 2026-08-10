@@ -1,4 +1,4 @@
-import { ExternalLink, Globe, Store } from "lucide-react";
+import { Calculator, ExternalLink, Globe, Store } from "lucide-react";
 import logo from "@/assets/logo.png";
 
 const WhatsAppIcon = () => (
@@ -15,6 +15,14 @@ const links = [
     href: "https://wa.me/5574981132047",
     icon: <WhatsAppIcon />,
     variant: "whatsapp",
+  },
+  {
+    id: "ferramentas",
+    label: "Ferramentas gratuitas",
+    description: "Calculadoras para a sua distribuidora, sem cadastro",
+    href: "https://h2ogestao.com.br/ferramentas",
+    icon: <Calculator className="w-5 h-5" />,
+    variant: "primary",
   },
   {
     id: "demo-store",
