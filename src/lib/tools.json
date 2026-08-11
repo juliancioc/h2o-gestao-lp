@@ -1,0 +1,51 @@
+[
+  {
+    "path": "/ferramentas/custo-do-galao",
+    "title": "Calculadora de custo do galão",
+    "shortTitle": "Custo do galão",
+    "description": "Descubra quanto cada galão custa de verdade, somando frete da compra, bonificação, avaria e o desgaste dos seus vasilhames.",
+    "available": true
+  },
+  {
+    "path": "/ferramentas/abrir-distribuidora",
+    "title": "Quanto custa abrir uma distribuidora",
+    "shortTitle": "Abrir distribuidora",
+    "description": "Simule o investimento inicial, o custo fixo mensal e quantas entregas por dia você precisa fazer para o negócio se pagar.",
+    "available": false
+  },
+  {
+    "path": "/ferramentas/taxa-de-entrega",
+    "title": "Quanto cobrar de taxa de entrega",
+    "shortTitle": "Taxa de entrega",
+    "description": "Calcule o custo real de cada entrega com combustível, distância e entregador, e chegue no frete justo por faixa de distância.",
+    "available": false
+  },
+  {
+    "path": "/ferramentas/comissao-de-entregador",
+    "title": "Comissão de entregador",
+    "shortTitle": "Comissão de entregador",
+    "description": "Compare fixo por entrega, porcentagem da venda e modelo híbrido, e veja quanto cada um custa por mês no seu volume.",
+    "available": false
+  },
+  {
+    "path": "/ferramentas/taxa-da-maquininha",
+    "title": "Taxa da maquininha",
+    "shortTitle": "Taxa da maquininha",
+    "description": "Veja quanto sobra em débito, crédito e parcelado, e compare repassar a taxa ao cliente ou absorver na sua margem.",
+    "available": false
+  },
+  {
+    "path": "/ferramentas/perda-de-vasilhame",
+    "title": "Perda de vasilhame",
+    "shortTitle": "Perda de vasilhame",
+    "description": "Estime quantos galões estão na rua sem voltar e quanto essa perda custa para a sua distribuidora ao longo do ano.",
+    "available": false
+  },
+  {
+    "path": "/ferramentas/capital-preso-no-fiado",
+    "title": "Capital preso no fiado",
+    "shortTitle": "Capital no fiado",
+    "description": "Descubra quanto do seu dinheiro está parado na mão dos clientes e o que esse valor deixa de render todo mês.",
+    "available": false
+  }
+]

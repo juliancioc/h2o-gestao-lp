@@ -1,0 +1,167 @@
+<!doctype html>
+<!--
+  Fonte da imagem de compartilhamento (public/og-image.png), 1200x630.
+
+  Para regerar depois de mudar algo aqui, abra o arquivo no navegador e tire um
+  print de 1200x630, ou rode um headless apontando para este caminho. As cores
+  são as mesmas variáveis do src/index.css e as fontes as mesmas do site.
+-->
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Inter:wght@400;500&display=swap"
+    rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      width: 1200px;
+      height: 630px;
+      overflow: hidden;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg,
+          hsl(205 85% 45%) 0%,
+          hsl(200 80% 50%) 45%,
+          hsl(190 70% 52%) 100%);
+      color: #fff;
+      position: relative;
+    }
+
+    /* Brilho de água atrás do conteúdo, o mesmo --gradient-glow do site. */
+    .glow {
+      position: absolute;
+      width: 900px;
+      height: 900px;
+      right: -220px;
+      top: -280px;
+      background: radial-gradient(ellipse at center, hsl(195 100% 85% / 0.45) 0%, transparent 70%);
+    }
+
+    .glow-2 {
+      position: absolute;
+      width: 700px;
+      height: 700px;
+      left: -260px;
+      bottom: -360px;
+      background: radial-gradient(ellipse at center, hsl(195 100% 92% / 0.28) 0%, transparent 70%);
+    }
+
+    .content {
+      position: relative;
+      height: 100%;
+      padding: 76px 80px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .brand img {
+      width: 72px;
+      height: 72px;
+      border-radius: 9999px;
+      display: block;
+    }
+
+    .brand span {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: 40px;
+      letter-spacing: -0.01em;
+    }
+
+    h1 {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 66px;
+      line-height: 1.08;
+      letter-spacing: -0.025em;
+      max-width: 16ch;
+      text-shadow: 0 4px 24px hsl(205 85% 25% / 0.25);
+    }
+
+    h1 em {
+      font-style: normal;
+      color: hsl(195 100% 88%);
+    }
+
+    p {
+      margin-top: 24px;
+      font-size: 27px;
+      line-height: 1.42;
+      max-width: 30ch;
+      color: hsl(0 0% 100% / 0.92);
+    }
+
+    .footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .domain {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600;
+      font-size: 30px;
+      color: hsl(0 0% 100% / 0.95);
+    }
+
+    .tags {
+      display: flex;
+      gap: 12px;
+    }
+
+    .tag {
+      padding: 12px 24px;
+      border-radius: 9999px;
+      background: hsl(0 0% 100% / 0.16);
+      border: 1px solid hsl(0 0% 100% / 0.28);
+      font-size: 22px;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="glow"></div>
+  <div class="glow-2"></div>
+
+  <div class="content">
+    <div class="brand">
+      <img src="../src/assets/logo.png" alt="" />
+      <span>H2O Gestão</span>
+    </div>
+
+    <div>
+      <!-- Quebra na mão: a imagem tem tamanho fixo, então o texto não pode
+           depender de onde o navegador resolve quebrar. -->
+      <h1>O sistema da sua<br /><em>distribuidora</em>,<br />num lugar só</h1>
+      <p>Vendas, estoque, fiado, entregas e caixa fechado no fim do dia.</p>
+    </div>
+
+    <div class="footer">
+      <span class="domain">h2ogestao.com.br</span>
+      <div class="tags">
+        <span class="tag">Água e gás</span>
+        <span class="tag">Teste grátis</span>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

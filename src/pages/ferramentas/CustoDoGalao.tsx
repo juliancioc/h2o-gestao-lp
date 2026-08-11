@@ -14,6 +14,8 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { cn } from "@/lib/utils";
+// O mesmo arquivo alimenta o JSON-LD que o prerender escreve no HTML.
+import faqs from "@/lib/faq-custo-do-galao.json";
 import {
   calculateGallonCost,
   formatBRL,
@@ -62,39 +64,8 @@ const PARAM_BY_FIELD: Record<FieldKey, string> = {
 
 const FIELD_KEYS = Object.keys(PARAM_BY_FIELD) as FieldKey[];
 
-const faqs = [
-  {
-    question: "O custo do galão é o preço que pago na nota do fornecedor?",
-    answer:
-      "Não. O preço da nota é o valor da carga, que é só a maior parte do custo. Para chegar no custo real você precisa somar o frete daquela compra, descontar a bonificação que recebeu e dividir tudo pelas unidades que sobraram boas para vender. Depois entra a parte do vasilhame que se gasta a cada ciclo e a dos galões que não voltam, porque o parque de galões é seu.",
-  },
-  {
-    question: "A bonificação do fornecedor diminui meu custo?",
-    answer:
-      "Sim, e bastante. Se você paga 100 unidades e recebe 110, o preço médio cai quase 10% de uma vez, porque o mesmo dinheiro se divide por mais galões. É por isso que a calculadora pede as unidades pagas e as bonificadas separadas.",
-  },
-  {
-    question: "Devo colocar o custo do vasilhame no preço do galão?",
-    answer:
-      "Sim, mas nunca o valor cheio. O galão não se gasta em uma venda, ele roda várias vezes. O jeito certo é dividir o preço do vasilhame pelo número de ciclos que ele aguenta na vida útil e somar o custo dos que somem no meio do caminho. Dá centavos por venda, mas no fim do mês é dinheiro.",
-  },
-  {
-    question: "O frete da entrega ao cliente entra no custo do galão?",
-    answer:
-      "Não. O custo unitário é o custo de ter o produto no seu estoque, e por isso só entra o frete da compra, o que traz a mercadoria até você. O que você gasta para levar até o cliente (gasolina, comissão do entregador, taxa da maquininha) é custo da venda e deve ser calculado por entrega, não por galão.",
-  },
-  {
-    question: "Com que frequência devo refazer essa conta?",
-    answer:
-      "Sempre que o fornecedor mudar o preço, mudar a bonificação ou o valor do frete. Na prática, revisar a cada compra grande já resolve. Trabalhar com um custo desatualizado é a forma mais comum de vender achando que está lucrando.",
-  },
-  {
-    question: "Serve para galão de 20 litros, botijão de gás e outros produtos?",
-    answer:
-      "Serve para qualquer produto que roda em vasilhame retornável. Para o botijão de gás e para a água em galão de 10 ou 20 litros a conta é a mesma, o que muda são os valores. Se for um produto sem vasilhame, como fardo de garrafas ou copo descartável, é só deixar o preço do vasilhame zerado.",
-  },
-];
-
+/** Cobre quem chega navegando pelo site; quem abre a URL direto já recebe
+ *  este mesmo bloco escrito no HTML pelo prerender. */
 const faqJsonLd = {
   "@context": "https://schema.org",
   "@type": "FAQPage",

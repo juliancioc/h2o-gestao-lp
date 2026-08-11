@@ -73,20 +73,32 @@ const Seo = ({ path, jsonLd }: SeoProps) => {
     const previousCanonical = canonical?.getAttribute("href") ?? null;
     canonical?.setAttribute("href", url);
 
-    let script: HTMLScriptElement | null = null;
+    // O prerender já escreve este bloco no HTML de quem abre a URL direto.
+    // Aqui só atualizamos o que existe, senão a página fica com dois.
+    let created: HTMLScriptElement | null = null;
+    let existing: HTMLScriptElement | null = null;
+    let previousJsonLd: string | null = null;
+
     if (jsonLd) {
-      script = document.createElement("script");
-      script.type = "application/ld+json";
-      script.id = JSON_LD_ID;
-      script.text = JSON.stringify(jsonLd);
-      document.head.appendChild(script);
+      existing = document.head.querySelector<HTMLScriptElement>(`#${JSON_LD_ID}`);
+      if (existing) {
+        previousJsonLd = existing.text;
+        existing.text = JSON.stringify(jsonLd);
+      } else {
+        created = document.createElement("script");
+        created.type = "application/ld+json";
+        created.id = JSON_LD_ID;
+        created.text = JSON.stringify(jsonLd);
+        document.head.appendChild(created);
+      }
     }
 
     return () => {
       document.title = previousTitle;
       restores.forEach((restore) => restore());
       if (previousCanonical !== null) canonical?.setAttribute("href", previousCanonical);
-      script?.remove();
+      if (existing && previousJsonLd !== null) existing.text = previousJsonLd;
+      created?.remove();
     };
   }, [path, jsonLd]);
 
