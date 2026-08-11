@@ -1,9 +1,11 @@
 import LegalLayout from "@/components/LegalLayout";
+import Seo from "@/components/Seo";
 import { company } from "@/lib/company";
 
 const Termos = () => {
   return (
     <LegalLayout title="Termos de Uso" updatedAt="15 de junho de 2026">
+      <Seo path="/termos" />
       <p>
         Estes Termos de Uso regem o acesso e a utilização da plataforma{" "}
         {company.fantasia}, oferecida pela {company.razaoSocial}, inscrita no

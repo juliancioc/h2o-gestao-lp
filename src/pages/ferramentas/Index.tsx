@@ -27,12 +27,7 @@ const isFeatured = availableTools.length === 1;
 const FerramentasIndex = () => {
   return (
     <>
-      <Seo
-        title="Ferramentas gratuitas para distribuidoras de água | H2O Gestão"
-        description="Calculadoras gratuitas para quem toca uma distribuidora de água e gás: custo do galão, taxa de entrega, comissão de entregador e mais. Sem cadastro."
-        path="/ferramentas"
-        jsonLd={itemListJsonLd}
-      />
+      <Seo path="/ferramentas" jsonLd={itemListJsonLd} />
 
       <ToolLayout
         badge="Ferramentas gratuitas"

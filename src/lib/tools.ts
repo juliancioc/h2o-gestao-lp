@@ -25,7 +25,8 @@ export interface Tool {
 /**
  * Fonte única das ferramentas gratuitas. A listagem, o rodapé e a navegação
  * leem daqui, então publicar uma ferramenta nova é virar o `available` e criar
- * a rota. Lembre de incluir o caminho em `public/sitemap.xml`.
+ * a rota. Lembre de incluir o caminho em `public/sitemap.xml` e em
+ * `src/lib/seo-routes.json` (sem isso a página sai sem canonical próprio).
  */
 export const tools: Tool[] = [
   {

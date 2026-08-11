@@ -1,8 +1,12 @@
 import { useEffect } from "react";
+import seoRoutes from "@/lib/seo-routes.json";
 
-interface SeoProps {
+interface SeoRoute {
   title: string;
   description: string;
+}
+
+interface SeoProps {
   /** Caminho absoluto da página, sem domínio. Ex.: "/ferramentas/custo-do-galao" */
   path: string;
   /** Dados estruturados schema.org, se a página tiver. */
@@ -10,6 +14,11 @@ interface SeoProps {
 }
 
 const SITE_URL = "https://h2ogestao.com.br";
+const routes = seoRoutes as Record<string, SeoRoute>;
+
+/** A home responde em "/", as demais sem barra no fim. */
+const urlFor = (path: string) => `${SITE_URL}${path === "/" ? "/" : path}`;
+
 const JSON_LD_ID = "seo-json-ld";
 
 const upsertMeta = (selector: string, attr: string, key: string, content: string) => {
@@ -29,24 +38,31 @@ const upsertMeta = (selector: string, attr: string, key: string, content: string
 /**
  * Ajusta title, description, canonical e Open Graph por rota.
  *
- * Cobre o Google, que executa JavaScript. Robôs que só leem o HTML servido
- * (preview de link no WhatsApp, por exemplo) continuam vendo o index.html,
- * porque a LP é uma SPA sem prerender.
+ * Os textos vêm de `src/lib/seo-routes.json`, a mesma fonte que o
+ * `scripts/prerender.mjs` usa para gerar um HTML por rota no build. Sem isso o
+ * servidor devolveria o index.html em qualquer URL, com o canonical da home, e
+ * o Google trataria as outras páginas como cópia dela.
  */
-const Seo = ({ title, description, path, jsonLd }: SeoProps) => {
+const Seo = ({ path, jsonLd }: SeoProps) => {
   useEffect(() => {
-    const url = `${SITE_URL}${path}`;
+    const route = routes[path];
+    if (!route) {
+      console.error(`Seo: rota "${path}" não está em src/lib/seo-routes.json`);
+      return;
+    }
+
+    const url = urlFor(path);
     const previousTitle = document.title;
-    document.title = title;
+    document.title = route.title;
 
     const restores = [
-      upsertMeta('meta[name="description"]', "name", "description", description),
-      upsertMeta('meta[property="og:title"]', "property", "og:title", title),
+      upsertMeta('meta[name="description"]', "name", "description", route.description),
+      upsertMeta('meta[property="og:title"]', "property", "og:title", route.title),
       upsertMeta(
         'meta[property="og:description"]',
         "property",
         "og:description",
-        description,
+        route.description,
       ),
       upsertMeta('meta[property="og:url"]', "property", "og:url", url),
     ];
@@ -72,7 +88,7 @@ const Seo = ({ title, description, path, jsonLd }: SeoProps) => {
       if (previousCanonical !== null) canonical?.setAttribute("href", previousCanonical);
       script?.remove();
     };
-  }, [title, description, path, jsonLd]);
+  }, [path, jsonLd]);
 
   return null;
 };

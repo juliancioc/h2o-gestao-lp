@@ -1,3 +1,4 @@
+import Seo from "@/components/Seo";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import FeaturesSection from "@/components/FeaturesSection";
@@ -12,6 +13,7 @@ import FAQSection from "@/components/FAQSection";
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
+      <Seo path="/" />
       <Navbar />
       <main>
         <HeroSection />

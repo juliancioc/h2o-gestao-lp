@@ -1,9 +1,11 @@
 import LegalLayout from "@/components/LegalLayout";
+import Seo from "@/components/Seo";
 import { company } from "@/lib/company";
 
 const Privacidade = () => {
   return (
     <LegalLayout title="Política de Privacidade e LGPD" updatedAt="15 de junho de 2026">
+      <Seo path="/privacidade" />
       <p>
         Esta Política de Privacidade descreve como a {company.razaoSocial},
         inscrita no CNPJ {company.cnpj}, responsável pela plataforma{" "}

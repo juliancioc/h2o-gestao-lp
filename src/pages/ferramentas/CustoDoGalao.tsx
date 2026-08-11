@@ -212,12 +212,7 @@ const CustoDoGalao = () => {
 
   return (
     <>
-      <Seo
-        title="Calculadora de custo do galão de água | H2O Gestão"
-        description="Descubra o custo real de cada galão da sua distribuidora somando frete da compra, bonificação, avaria e vasilhame. Calculadora gratuita, sem cadastro."
-        path="/ferramentas/custo-do-galao"
-        jsonLd={faqJsonLd}
-      />
+      <Seo path="/ferramentas/custo-do-galao" jsonLd={faqJsonLd} />
 
       <ToolLayout
         badge="Ferramenta gratuita"

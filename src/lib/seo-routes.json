@@ -1,0 +1,22 @@
+{
+  "/": {
+    "title": "H2O Gestão - Sistema ERP para Distribuidoras de Água",
+    "description": "O ERP completo para distribuidoras de água. Gerencie pedidos, estoque e financeiro em uma única plataforma."
+  },
+  "/ferramentas": {
+    "title": "Ferramentas gratuitas para distribuidoras de água | H2O Gestão",
+    "description": "Calculadoras gratuitas para quem toca uma distribuidora de água e gás: custo do galão, taxa de entrega, comissão de entregador e mais. Sem cadastro."
+  },
+  "/ferramentas/custo-do-galao": {
+    "title": "Calculadora de custo do galão de água | H2O Gestão",
+    "description": "Descubra o custo real de cada galão da sua distribuidora somando frete da compra, bonificação, avaria e vasilhame. Calculadora gratuita, sem cadastro."
+  },
+  "/privacidade": {
+    "title": "Política de privacidade e LGPD | H2O Gestão",
+    "description": "Como o H2O Gestão coleta, usa, armazena e protege os dados da sua distribuidora, em conformidade com a LGPD."
+  },
+  "/termos": {
+    "title": "Termos de uso | H2O Gestão",
+    "description": "As condições de uso do H2O Gestão: assinatura, pagamento, cancelamento, responsabilidades e suporte."
+  }
+}
