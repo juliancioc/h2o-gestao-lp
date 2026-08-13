@@ -2,15 +2,13 @@
 <html lang="pt-BR">
 
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-L3Q05DPTYV"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-
-    gtag('config', 'G-L3Q05DPTYV');
-  </script>
+  <!-- Medição: o container do Google Tag Manager é injetado em
+       src/lib/analytics.ts, a partir de VITE_GTM_ID.
+       O GA4 (G-L3Q05DPTYV) saiu daqui de propósito: ele agora é uma TAG dentro
+       do container. Mantê-lo também como gtag.js faria cada pageview e cada
+       evento contarem duas vezes.
+       ⚠️ Enquanto a tag do GA4 não existir no container, a LP não manda nada
+       para o Analytics. -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>H2O Gestão - Sistema ERP para Distribuidoras de Água</title>

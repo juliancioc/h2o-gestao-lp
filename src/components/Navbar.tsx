@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { StartTrialButton } from "@/components/analytics/StartTrialButton";
 import Logo from "@/components/Logo";
 import { cn } from "@/lib/utils";
 
@@ -26,10 +27,6 @@ const Navbar = () => {
       "_blank",
       "noopener,noreferrer",
     );
-  };
-
-  const handleOpenRegister = () => {
-    window.open("https://app.h2ogestao.com.br/register", "_blank");
   };
 
   return (
@@ -63,9 +60,9 @@ const Navbar = () => {
             <Button variant="ghost" size="sm" onClick={handleSignIn}>
               Entrar
             </Button>
-            <Button variant="default" size="sm" onClick={handleOpenRegister}>
-              Começar Agora
-            </Button>
+            <StartTrialButton variant="default" size="sm" source="navbar">
+              Testar grátis
+            </StartTrialButton>
           </div>
 
           {/* Mobile Menu Button */}
@@ -115,13 +112,13 @@ const Navbar = () => {
                 >
                   Entrar
                 </Button>
-                <Button
+                <StartTrialButton
                   variant="default"
                   className="w-full"
-                  onClick={handleOpenRegister}
+                  source="navbar_mobile"
                 >
-                  Começar Agora
-                </Button>
+                  Testar grátis
+                </StartTrialButton>
               </div>
             </div>
           </div>
