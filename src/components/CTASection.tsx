@@ -1,10 +1,7 @@
 import { ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { StartTrialButton } from "@/components/analytics/StartTrialButton";
 
 const CTASection = () => {
-  const handleContract = () => {
-    window.open("https://app.h2ogestao.com.br/register", "_blank");
-  };
 
   return (
     <section className="py-24 bg-gradient-to-br from-primary via-water-deep to-secondary relative overflow-hidden">
@@ -28,17 +25,17 @@ const CTASection = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center max-w-3xl mx-auto">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-primary-foreground mb-6">
-            Comece hoje a partir de R$ 59/mês
+            Teste grátis por 7 dias
           </h2>
           <p className="text-lg md:text-xl text-primary-foreground/80 mb-10 leading-relaxed">
-            Veja como o H2O Gestão pode aumentar sua eficiência e reduzir custos
-            operacionais.
+            Crie sua conta e use o sistema completo por 7 dias, sem cartão de
+            crédito. Depois, planos a partir de R$ 59/mês.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button variant="heroOutline" size="xl" onClick={handleContract}>
-              Quero contratar <ArrowRight className="ml-2" />
-            </Button>
+            <StartTrialButton variant="heroOutline" size="xl" source="cta_final">
+              Criar minha conta grátis <ArrowRight className="ml-2" />
+            </StartTrialButton>
           </div>
         </div>
       </div>

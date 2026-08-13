@@ -1,11 +1,8 @@
 import { ArrowRight, ShieldCheck, MessageCircle, BadgeCheck, Receipt } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { StartTrialButton } from "@/components/analytics/StartTrialButton";
 import heroBg from "@/assets/hero-bg.jpg";
 
 const HeroSection = () => {
-  const handleOpenRegister = () => {
-    window.open("https://app.h2ogestao.com.br/register", "_blank");
-  };
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
@@ -51,11 +48,14 @@ const HeroSection = () => {
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-up-delayed">
-            <Button variant="hero" size="xl" onClick={handleOpenRegister}>
-              Começar Agora
+          <div className="flex flex-col items-center justify-center gap-3 animate-fade-up-delayed">
+            <StartTrialButton variant="hero" size="xl" source="hero">
+              Testar grátis por 7 dias
               <ArrowRight className="w-5 h-5" />
-            </Button>
+            </StartTrialButton>
+            <span className="text-sm text-primary-foreground/80">
+              Sem cartão de crédito. Acesso na hora.
+            </span>
           </div>
 
           {/* Trust Signals */}

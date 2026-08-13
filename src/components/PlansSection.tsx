@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   Check,
   CreditCard,
@@ -10,7 +10,8 @@ import {
   Truck,
   Upload,
 } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { StartTrialButton } from "@/components/analytics/StartTrialButton";
+import { pushDataLayer } from "@/lib/analytics";
 import {
   Card,
   CardContent,
@@ -19,15 +20,6 @@ import {
   CardDescription,
   CardFooter,
 } from "@/components/ui/card";
-
-// Plano + periodicidade seguem como params: o app pré-seleciona ambos na
-// tela de pagamento pós-cadastro.
-const handleContract = (plan: string, billing: "mensal" | "anual") => {
-  window.open(
-    `https://app.h2ogestao.com.br/register?plan=${plan}&billing=${billing}`,
-    "_blank"
-  );
-};
 
 const essencialFeatures = [
   "Até 2 usuários",
@@ -122,8 +114,48 @@ const PlansSection = () => {
   const [billing, setBilling] = useState<"monthly" | "annual">("monthly");
   const isAnnual = billing === "annual";
 
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const pricingViewed = useRef(false);
+
+  // "Viu os planos" é a etapa entre chegar na página e clicar no CTA, e numa
+  // landing de página única não existe URL para marcá-la: só o momento em que a
+  // seção entra na tela. Dispara uma vez por visita; rolar de volta não conta
+  // de novo.
+  useEffect(() => {
+    const element = sectionRef.current;
+    if (!element) return undefined;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries.some((entry) => entry.isIntersecting);
+        if (!visible || pricingViewed.current) return;
+
+        pricingViewed.current = true;
+        pushDataLayer({
+          event: "view_pricing",
+          billing: isAnnual ? "anual" : "mensal",
+        });
+        observer.disconnect();
+      },
+      // Metade da seção à vista: passar raspando ao rolar rápido não é ter
+      // olhado o preço.
+      { threshold: 0.5 }
+    );
+
+    observer.observe(element);
+    return () => observer.disconnect();
+    // `isAnnual` fora das deps de propósito: o evento sai uma vez, com a
+    // periodicidade que estava marcada na hora. Reagir à troca remontaria o
+    // observador sem necessidade.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
-    <section id="planos" className="py-24 bg-background relative overflow-hidden">
+    <section
+      id="planos"
+      ref={sectionRef}
+      className="py-24 bg-background relative overflow-hidden"
+    >
       {/* Decorative Background */}
       <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-accent/20 rounded-full blur-3xl -z-10" />
 
@@ -252,16 +284,16 @@ const PlansSection = () => {
               </CardContent>
 
               <CardFooter className="pt-4">
-                <Button
+                <StartTrialButton
                   variant={plan.highlight ? "hero" : "outline"}
                   size="lg"
                   className="w-full"
-                  onClick={() =>
-                    handleContract(plan.slug, isAnnual ? "anual" : "mensal")
-                  }
+                  source="planos"
+                  plan={plan.slug}
+                  billing={isAnnual ? "anual" : "mensal"}
                 >
-                  Quero contratar
-                </Button>
+                  Começar teste grátis
+                </StartTrialButton>
               </CardFooter>
             </Card>
           ))}
