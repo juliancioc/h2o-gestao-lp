@@ -33,18 +33,18 @@ const HeroSection = () => {
 
           {/* Heading */}
           <h1 className="text-4xl md:text-5xl lg:text-7xl font-heading font-bold text-primary-foreground mb-6 animate-fade-up leading-tight">
-            O ERP completo para{" "}
+            Pare de{" "}
             <span className="relative">
-              <span className="relative z-10">Distribuidoras de Água</span>
+              <span className="relative z-10">perder dinheiro</span>
               <span className="absolute bottom-2 left-0 right-0 h-3 bg-water-light/30 -z-0 rounded" />
-            </span>
+            </span>{" "}
+            na sua distribuidora.
           </h1>
 
           {/* Subtitle */}
           <p className="text-lg md:text-xl text-primary-foreground/80 mb-10 max-w-2xl mx-auto animate-fade-up-delayed leading-relaxed">
-            Gerencie pedidos, estoque, financeiro e emissão de notas fiscais em
-            uma única plataforma — com loja online própria para seus clientes
-            pedirem direto de você.
+            Saiba quanto vendeu, quanto lucrou, onde estão seus galões e quais
+            clientes estão devendo, tudo pelo celular.
           </p>
 
           {/* CTA Buttons */}
