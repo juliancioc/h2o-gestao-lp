@@ -4,6 +4,7 @@ import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { StartTrialButton } from "@/components/analytics/StartTrialButton";
 import Logo from "@/components/Logo";
+import { trialCopy } from "@/lib/trial";
 import { cn } from "@/lib/utils";
 
 const Navbar = () => {
@@ -61,7 +62,7 @@ const Navbar = () => {
               Entrar
             </Button>
             <StartTrialButton variant="default" size="sm" source="navbar">
-              Testar grátis
+              {trialCopy.navbarCta}
             </StartTrialButton>
           </div>
 
@@ -117,7 +118,7 @@ const Navbar = () => {
                   className="w-full"
                   source="navbar_mobile"
                 >
-                  Testar grátis
+                  {trialCopy.navbarCta}
                 </StartTrialButton>
               </div>
             </div>
