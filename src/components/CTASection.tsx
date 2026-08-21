@@ -1,5 +1,6 @@
 import { ArrowRight } from "lucide-react";
 import { StartTrialButton } from "@/components/analytics/StartTrialButton";
+import { trialCopy } from "@/lib/trial";
 
 const CTASection = () => {
 
@@ -25,16 +26,15 @@ const CTASection = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center max-w-3xl mx-auto">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-primary-foreground mb-6">
-            Teste grátis por 7 dias
+            {trialCopy.finalTitle}
           </h2>
           <p className="text-lg md:text-xl text-primary-foreground/80 mb-10 leading-relaxed">
-            Crie sua conta e use o sistema completo por 7 dias, sem cartão de
-            crédito. Depois, planos a partir de R$ 59/mês.
+            {trialCopy.finalSubtitle}
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <StartTrialButton variant="heroOutline" size="xl" source="cta_final">
-              Criar minha conta grátis <ArrowRight className="ml-2" />
+              {trialCopy.finalCta} <ArrowRight className="ml-2" />
             </StartTrialButton>
           </div>
         </div>

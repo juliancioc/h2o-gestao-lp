@@ -1,5 +1,6 @@
 import { ArrowRight, ShieldCheck, MessageCircle, BadgeCheck, Receipt } from "lucide-react";
 import { StartTrialButton } from "@/components/analytics/StartTrialButton";
+import { trialCopy } from "@/lib/trial";
 import heroBg from "@/assets/hero-bg.jpg";
 
 const HeroSection = () => {
@@ -50,11 +51,11 @@ const HeroSection = () => {
           {/* CTA Buttons */}
           <div className="flex flex-col items-center justify-center gap-3 animate-fade-up-delayed">
             <StartTrialButton variant="hero" size="xl" source="hero">
-              Testar grátis por 7 dias
+              {trialCopy.heroCta}
               <ArrowRight className="w-5 h-5" />
             </StartTrialButton>
             <span className="text-sm text-primary-foreground/80">
-              Sem cartão de crédito. Acesso na hora.
+              {trialCopy.heroNote}
             </span>
           </div>
 

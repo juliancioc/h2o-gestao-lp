@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import { StartTrialButton } from "@/components/analytics/StartTrialButton";
 import { pushDataLayer } from "@/lib/analytics";
+import { trialCopy } from "@/lib/trial";
 import {
   Card,
   CardContent,
@@ -292,7 +293,7 @@ const PlansSection = () => {
                   plan={plan.slug}
                   billing={isAnnual ? "anual" : "mensal"}
                 >
-                  Começar teste grátis
+                  {trialCopy.plansCta}
                 </StartTrialButton>
               </CardFooter>
             </Card>
