@@ -12,6 +12,7 @@ const Navbar = () => {
 
   const navLinks = [
     { label: "Funcionalidades", href: "#funcionalidades" },
+    { label: "Aplicativo", href: "#aplicativo" },
     { label: "Loja Online", href: "#loja-online" },
     { label: "Como funciona", href: "#como-funciona" },
     { label: "Planos", href: "#planos" },

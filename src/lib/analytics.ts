@@ -18,6 +18,7 @@ export type AnalyticsEvent =
   | { event: "page_view"; page_path: string; page_title: string }
   | { event: "view_pricing"; billing?: "mensal" | "anual" }
   | { event: "click_start_trial"; source: string; plan?: string; billing?: string }
+  | { event: "click_download_app"; source: string }
   | { event: "click_whatsapp"; source: string };
 
 type DataLayerEntry = AnalyticsEvent | Record<string, unknown>;
