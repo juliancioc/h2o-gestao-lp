@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import Logo from "@/components/Logo";
+import { DownloadAppLink } from "@/components/analytics/DownloadAppLink";
 import { company } from "@/lib/company";
 import { availableTools } from "@/lib/tools";
 
@@ -97,6 +98,20 @@ const Footer = () => {
                   </a>
                 </li>
               ))}
+              {/*
+                Fora do array porque não é âncora da página: é a loja do
+                Google, em outra aba e com evento próprio. Fica aqui porque o
+                cliente que já assina volta ao site para instalar o app no
+                celular do entregador, e o rodapé é onde ele procura.
+              */}
+              <li>
+                <DownloadAppLink
+                  source="rodape"
+                  className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors"
+                >
+                  Baixar o app (Android)
+                </DownloadAppLink>
+              </li>
             </ul>
           </div>
 
