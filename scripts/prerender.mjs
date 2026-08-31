@@ -7,6 +7,13 @@
  * componente Seo só conserta isso depois que o JavaScript roda, tarde demais
  * para a primeira leitura do robô e inútil para o preview de link do WhatsApp.
  *
+ * O `<head>` sozinho não bastava: o corpo saía `<div id="root"></div>` e o
+ * HTML não tinha nenhuma tag `<a>`, então nenhuma página interna tinha link
+ * apontando para ela e o Search Console dizia "nenhuma página de referência
+ * foi detectada". Por isso cada rota também é renderizada aqui, pela mesma
+ * árvore que o navegador hidrata (src/entry-server.tsx, compilado em
+ * dist-ssr/ pelo `npm run build`).
+ *
  * Como toda rota vira arquivo, o vercel.json não precisa mais do rewrite
  * coringa, e é por isso que uma URL inexistente consegue responder 404 de
  * verdade (a Vercel serve o 404.html quando nenhum arquivo casa).
@@ -15,10 +22,11 @@
  *   src/lib/seo-routes.json      title, description, noindex e sitemap
  *   src/lib/tools.json           ItemList de /ferramentas
  *   src/lib/faq-custo-do-galao.json  FAQPage da calculadora
+ *   dist-ssr/entry-server.js     render(path) com a árvore do site
  */
 import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import { dirname, join } from "node:path";
-import { fileURLToPath } from "node:url";
+import { fileURLToPath, pathToFileURL } from "node:url";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const dist = join(root, "dist");
@@ -29,6 +37,12 @@ const readJson = (path) => JSON.parse(readFileSync(join(root, path), "utf8"));
 const routes = readJson("src/lib/seo-routes.json");
 const tools = readJson("src/lib/tools.json");
 const faqCustoDoGalao = readJson("src/lib/faq-custo-do-galao.json");
+
+// pathToFileURL porque no Windows o import de caminho absoluto ("C:\...")
+// não é uma URL válida para o ESM.
+const { render } = await import(
+  pathToFileURL(join(root, "dist-ssr/entry-server.js")).href
+);
 
 const urlFor = (path) => `${SITE_URL}${path === "/" ? "/" : path}`;
 
@@ -62,6 +76,23 @@ const checkRoutes = () => {
       `prerender: entrada em seo-routes.json sem rota no App.tsx: ${extra.join(", ")}`,
     );
   }
+};
+
+/**
+ * Corpo da rota, já como HTML.
+ *
+ * O erro que interessa aqui é o silencioso: se um dia o render voltar vazio, o
+ * site continua funcionando no navegador e só o Google perde a página de
+ * vista. Por isso o build para em vez de publicar HTML oco.
+ */
+const bodyFor = (path) => {
+  const html = render(path);
+  if (!html || html.length < 200) {
+    throw new Error(
+      `prerender: a rota ${path} renderizou vazia. O HTML publicado ficaria sem conteúdo para o robô.`,
+    );
+  }
+  return html;
 };
 
 /** Dados estruturados por rota, para o robô não depender de renderizar o JS. */
@@ -107,7 +138,7 @@ const replaceTag = (html, pattern, replacement, label) => {
   return html.replace(pattern, replacement);
 };
 
-const buildHtml = (template, { title, description, url, noindex, jsonLd }) => {
+const buildHtml = (template, { title, description, url, noindex, jsonLd, body }) => {
   let html = template;
 
   html = replaceTag(html, /<title>[^<]*<\/title>/, `<title>${escape(title)}</title>`, "o <title>");
@@ -157,6 +188,15 @@ const buildHtml = (template, { title, description, url, noindex, jsonLd }) => {
     html = html.replace("</head>", `${script}</head>`);
   }
 
+  // O conteúdo vai dentro do #root, exatamente como o React o desenharia: é o
+  // que o navegador hidrata depois, sem redesenhar a página.
+  html = replaceTag(
+    html,
+    /<div id="root"><\/div>/,
+    `<div id="root">${body}</div>`,
+    'a <div id="root">',
+  );
+
   return html;
 };
 
@@ -178,6 +218,7 @@ for (const [path, route] of Object.entries(routes)) {
     url: route.noindex ? null : urlFor(path),
     noindex: Boolean(route.noindex),
     jsonLd: jsonLdFor(path),
+    body: bodyFor(path),
   });
   write(path === "/" ? "index.html" : `${path.slice(1)}/index.html`, html);
 }
@@ -191,6 +232,8 @@ write(
     url: null,
     noindex: true,
     jsonLd: null,
+    // Qualquer caminho fora da tabela cai na rota "*", que é a página de 404.
+    body: bodyFor("/404"),
   }),
 );
 

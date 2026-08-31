@@ -1,3 +1,4 @@
+import { ReactNode } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -16,35 +17,53 @@ import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
-const App = () => (
+/**
+ * Tudo que envolve as rotas, menos o roteador.
+ *
+ * Fica separado porque o build também renderiza esta árvore, com o
+ * StaticRouter no lugar do BrowserRouter, para escrever o HTML de cada rota
+ * (src/entry-server.tsx). Provider que existisse só de um lado sairia como
+ * diferença na hidratação.
+ */
+export const AppProviders = ({ children }: { children: ReactNode }) => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
-        <ScrollToTop />
-        <RouteTracker />
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/bio" element={<Instagram />} />
-          <Route path="/privacidade" element={<Privacidade />} />
-          <Route path="/termos" element={<Termos />} />
-          <Route path="/ferramentas" element={<FerramentasIndex />} />
-          <Route
-            path="/ferramentas/custo-do-galao"
-            element={<CustoDoGalao />}
-          />
-          {/* Página não listada: acesso só por link direto (noindex) */}
-          <Route
-            path="/programa-parceiros-h2o-2026"
-            element={<ProgramaParceiros />}
-          />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
+      {children}
     </TooltipProvider>
   </QueryClientProvider>
+);
+
+/** O miolo roteado, igual no navegador e no build. Precisa de um Router acima. */
+export const AppRoutes = () => (
+  <>
+    <ScrollToTop />
+    <RouteTracker />
+    <Routes>
+      <Route path="/" element={<Index />} />
+      <Route path="/bio" element={<Instagram />} />
+      <Route path="/privacidade" element={<Privacidade />} />
+      <Route path="/termos" element={<Termos />} />
+      <Route path="/ferramentas" element={<FerramentasIndex />} />
+      <Route path="/ferramentas/custo-do-galao" element={<CustoDoGalao />} />
+      {/* Página não listada: acesso só por link direto (noindex) */}
+      <Route
+        path="/programa-parceiros-h2o-2026"
+        element={<ProgramaParceiros />}
+      />
+      {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+      <Route path="*" element={<NotFound />} />
+    </Routes>
+  </>
+);
+
+const App = () => (
+  <AppProviders>
+    <BrowserRouter>
+      <AppRoutes />
+    </BrowserRouter>
+  </AppProviders>
 );
 
 export default App;
