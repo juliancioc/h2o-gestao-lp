@@ -38,7 +38,8 @@ viraram prateleira vazia visível para quem chega.
 
 - `scripts/prerender.mjs` gera um HTML por rota depois do `vite build`, com
   title, description, canonical, OG e JSON-LD próprios, mais o `404.html` e o
-  `sitemap.xml`. É o que resolveu o "Página alternativa com tag canônica
+  `sitemap.xml`. Desde 31/08/2026 ele também escreve o corpo da página, não só
+  o `<head>`. É o que resolveu o "Página alternativa com tag canônica
   adequada" do Search Console (esse motivo está zerado hoje).
 - `checkRoutes()` no mesmo script quebra o build se uma rota do `App.tsx` não
   tiver entrada em `src/lib/seo-routes.json` (e vice-versa). Esquecimento de
@@ -107,6 +108,7 @@ validação em falha. É resíduo do www e tem prioridade baixa.
    cards) só existe depois que o JavaScript roda. Para um site novo, sem
    autoridade, depender da segunda passada de renderização do Google é
    justamente o que produz o "nenhuma página de referência detectada" acima.
+   *(Resolvido em 31/08/2026 pela Fase 1: cada rota sai do build renderizada.)*
 
 ### GA4 (propriedade "LP H2O Gestão", últimos 28 dias)
 
@@ -161,6 +163,9 @@ conteúdo no HTML) separam a prateleira atual de existir para o Google. Enquanto
 elas não forem feitas, cada calculadora nova nasce invisível, e a frente inteira
 não pode ser avaliada: não dá para dizer se conteúdo funciona quando nada foi
 sequer rastreado.
+
+As duas foram feitas: o sitemap em 28/08/2026 e o HTML com conteúdo em
+31/08/2026. O que falta agora é tempo de rastreamento e a medição da Fase 0.
 
 ### 3.2 A infra cobre calculadora, não cobre texto
 
@@ -229,22 +234,36 @@ para o user agent do Googlebot).
 **Pronto quando:** o relatório de indexação mostrar mais de 2 páginas indexadas
 no domínio. Linha de base: 2 em 28/08/2026. Vale conferir em uma semana.
 
-### Fase 1: HTML com conteúdo, não só com head (meio dia a 1 dia)
+### Fase 1: HTML com conteúdo, não só com head (FEITO em 31/08/2026)
 
 O passo que mais muda o resultado e o mais fácil de esquecer, porque no
 navegador tudo parece certo.
 
-- O HTML de cada rota precisa sair do build com o conteúdo principal e com os
-  links internos já escritos, não só com as meta tags.
-- Caminho mais direto sem trocar o stack: renderizar o `App` no build
-  (`react-dom/server`) dentro do mesmo `scripts/prerender.mjs`, já que ele roda
-  depois do `vite build` e as rotas são conhecidas.
-- Mínimo aceitável, se a renderização der trabalho: um bloco estático de links
-  (home para `/ferramentas`, `/ferramentas` para cada calculadora) escrito
-  direto no HTML gerado.
+Caminho seguido: renderizar a mesma árvore do site no build, com
+`react-dom/server` e `StaticRouter` (`src/entry-server.tsx`), e escrever o
+resultado dentro do `#root` no `scripts/prerender.mjs`. O bloco estático de
+links, que era o mínimo aceitável, não foi preciso.
 
-**Pronto quando:** `curl` na home devolver o link para `/ferramentas`, e a
-inspeção de URL parar de dizer "nenhuma página de referência foi detectada".
+- `src/App.tsx` virou `AppProviders` + `AppRoutes`, para o navegador e o build
+  montarem exatamente a mesma coisa.
+- `src/main.tsx` hidrata quando o `#root` já vem preenchido, em vez de
+  redesenhar tudo por cima do que já está pintado.
+- Render vazio derruba o build, como já acontecia com rota fora do
+  `seo-routes.json`. É o tipo de falha que passaria despercebida: o site
+  continua funcionando no navegador e só o Google perde a página de vista.
+
+O HTML servido saiu de zero tag `<a>` para 8 links internos na home, 9 na
+listagem e 9 na calculadora. As respostas do FAQ também passaram a sair
+escritas.
+
+Cuidado ao conferir localmente: o `vite preview` devolve o `index.html` da home
+em `/ferramentas/custo-do-galao` e fabrica um erro de hidratação que não existe
+em produção. Servir o `dist` resolvendo `pasta/index.html`, como a Vercel faz, é
+o que reproduz o comportamento real.
+
+**Pronto quando:** `curl` na home devolver o link para `/ferramentas` (feito), e
+a inspeção de URL parar de dizer "nenhuma página de referência foi detectada"
+(a conferir depois do deploy, junto com um novo pedido de indexação).
 
 ### Fase 2: medição por ferramenta e preview por rota (meio dia)
 
