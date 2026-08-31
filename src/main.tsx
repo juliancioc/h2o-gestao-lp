@@ -1,4 +1,4 @@
-import { createRoot } from "react-dom/client";
+import { createRoot, hydrateRoot } from "react-dom/client";
 import App from "./App.tsx";
 import { initAnalytics } from "./lib/analytics";
 import "./index.css";
@@ -7,4 +7,14 @@ import "./index.css";
 // index.html) e as tags precisam estar de pé antes do primeiro page_view.
 initAnalytics();
 
-createRoot(document.getElementById("root")!).render(<App />);
+const container = document.getElementById("root")!;
+
+// O build escreve o HTML de cada rota dentro do #root (scripts/prerender.mjs),
+// então o normal é hidratar: `createRoot` jogaria fora o que já está pintado e
+// desenharia tudo de novo, com piscada. O caminho vazio cobre o `npm run dev`,
+// que serve o index.html cru.
+if (container.hasChildNodes()) {
+  hydrateRoot(container, <App />);
+} else {
+  createRoot(container).render(<App />);
+}
