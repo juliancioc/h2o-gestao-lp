@@ -88,7 +88,7 @@ export default function Instagram() {
         {/* Logo & Brand */}
         <div className="flex flex-col items-center gap-3">
           <div
-            className="w-20 h-20 rounded-2xl overflow-hidden shadow-lg"
+            className="w-20 h-20 rounded-2xl overflow-hidden bg-brand-cyan shadow-lg"
             style={{
               border: "1px solid hsl(0 0% 100% / 0.25)",
             }}
