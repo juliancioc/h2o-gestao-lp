@@ -19,15 +19,16 @@ calculadora sem consertar a descoberta é encher uma prateleira que ninguém vê
 ## 1. Situação hoje
 
 **No ar** (conferido no `sitemap.xml` de produção em 28/08/2026): 5 URLs
-indexáveis, sendo 3 capazes de atrair alguém por busca.
+indexáveis, sendo 3 capazes de atrair alguém por busca. A coluna de estado é a
+inspeção de URL em 31/08/2026; em 28/08 só a home estava no índice.
 
-| URL | O que é |
-| --- | --- |
-| `/` | home |
-| `/ferramentas` | listagem das calculadoras |
-| `/ferramentas/custo-do-galao` | única calculadora publicada |
-| `/privacidade` | legal |
-| `/termos` | legal |
+| URL | O que é | No índice (31/08) |
+| --- | --- | --- |
+| `/` | home | sim |
+| `/ferramentas` | listagem das calculadoras | sim |
+| `/ferramentas/custo-do-galao` | única calculadora publicada | sim |
+| `/privacidade` | legal | não conferido |
+| `/termos` | legal | não conferido |
 
 **Na prateleira:** `src/lib/tools.json` declara 7 ferramentas, 6 com
 `available: false`. Elas aparecem em `/ferramentas` no bloco "Em breve" desde
@@ -88,14 +89,16 @@ mesmo veredito:
 > Último rastreamento: N/D
 
 Ou seja: nunca foram rastreadas, e o Google não achou nenhum link apontando para
-elas.
+elas. *(Deixou de valer em 31/08/2026: as duas estão indexadas, ver a Fase 0.)*
 
 As consultas são só de marca e são 16 no trimestre inteiro ("h2o login",
 "plataforma h2o", "h2o plataforma"). A única consulta de categoria que apareceu
 foi "sistema erp para distribuidora de água", com 4 impressões e 0 clique.
 
 Restam ainda 2 URLs classificadas como "Página com redirecionamento", com
-validação em falha. É resíduo do www e tem prioridade baixa.
+validação em falha. É resíduo do www e tem prioridade baixa. Continuava assim em
+31/08/2026. No mesmo relatório, "Página alternativa com tag canônica adequada"
+está zerado, que era o motivo que o canonical por rota foi feito para matar.
 
 ### Duas causas, as duas simples
 
@@ -231,8 +234,17 @@ foi possível buscar o sitemap" com última leitura vazia, o que é o estado nor
 logo depois do envio (o arquivo responde 200 com `application/xml`, inclusive
 para o user agent do Googlebot).
 
-**Pronto quando:** o relatório de indexação mostrar mais de 2 páginas indexadas
-no domínio. Linha de base: 2 em 28/08/2026. Vale conferir em uma semana.
+**Medido em 31/08/2026: cumprida.** A inspeção de `/ferramentas` e de
+`/ferramentas/custo-do-galao` responde "O URL está no Google" e "A página está
+indexada". Em 28/08 as duas respondiam "O Google não reconhece o URL". A aba
+Sitemaps mostra o sitemap como Processado, lido em 29/08, com 5 páginas
+encontradas.
+
+Cuidado com a métrica escolhida: o relatório de indexação ainda mostrava 2
+páginas indexadas nesse mesmo dia, com o carimbo "Última atualização:
+20/08/2026". Ele é foto atrasada e nesse caso estava 11 dias para trás. Quem
+responde no tempo certo é a inspeção de URL, e é por ela que a Fase 0 se dá por
+fechada.
 
 ### Fase 1: HTML com conteúdo, não só com head (FEITO em 31/08/2026)
 
@@ -308,7 +320,7 @@ artigo, FAQ com JSON-LD e link compartilhável.
 
 | Tipo | Assunto | Termo alvo aproximado | Estado |
 | --- | --- | --- | --- |
-| Ferramenta | Custo do galão | custo do galão de água | No ar, fora do índice |
+| Ferramenta | Custo do galão | custo do galão de água | No ar, indexada |
 | Ferramenta | Abrir distribuidora | quanto custa abrir uma distribuidora de água | Fila, próximo |
 | Ferramenta | Taxa de entrega | quanto cobrar de taxa de entrega | Fila |
 | Ferramenta | Comissão de entregador | quanto pagar de comissão para entregador | Fila |
@@ -353,9 +365,11 @@ precisam de passo próprio.
 
 ## 7. Como medir
 
-- **Descoberta:** páginas indexadas no relatório de indexação (linha de base:
-  2 em 28/08/2026) e impressões por página no Search Console. Essa é a métrica
-  da Fase 0 e da Fase 1.
+- **Descoberta:** impressões por página no Search Console, e a inspeção de URL
+  para saber se uma página entrou no índice. O relatório de indexação serve para
+  a tendência, não para responder "entrou?": ele atrasa (em 31/08/2026 mostrava
+  a foto de 20/08). Linha de base: 1 página da LP no índice em 28/08/2026, 3 em
+  31/08/2026, e zero impressão nas duas de conteúdo.
 - **Funil:** `page_view` por rota de conteúdo, `use_tool`, `share_tool` e
   `click_start_trial` com `source` da ferramenta.
 - **Negócio:** CAC no painel admin (aba Aquisição). O sinal de que a frente está
@@ -371,6 +385,6 @@ precisam de passo próprio.
   os canais de aquisição ficam contaminados por cliente que já usa o sistema.
 - **Cadência:** qual ritmo assumir (uma publicação por semana é o que faz essa
   frente valer a pena).
-- 2 URLs em "Página com redirecionamento" com validação em falha. Resíduo do
-  www, prioridade baixa.
+- 2 URLs em "Página com redirecionamento" com validação em falha, confirmado de
+  novo em 31/08/2026. Resíduo do www, prioridade baixa.
 - `/bio` continua com `noindex`, por decisão. Nada a fazer.

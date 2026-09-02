@@ -51,6 +51,9 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        brand: {
+          cyan: "hsl(var(--brand-cyan))",
+        },
         water: {
           deep: "hsl(var(--water-deep))",
           medium: "hsl(var(--water-medium))",

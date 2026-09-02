@@ -37,6 +37,8 @@
     --radius: 0.75rem;
 
     /* Custom colors */
+    /* Ciano da marca, o mesmo fundo do logo. Fixo nos dois temas. */
+    --brand-cyan: 188.8 90% 46%;
     --water-deep: 205 85% 35%;
     --water-medium: 200 80% 50%;
     --water-light: 195 90% 65%;
