@@ -9,16 +9,23 @@ import {
   TrendingUp,
   Receipt,
   Store,
+  MessageCircle,
 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
 const features = [
   {
+    icon: MessageCircle,
+    title: "WhatsApp Integrado",
+    description:
+      "O WhatsApp da sua distribuidora dentro do sistema. O pedido que chega na conversa é reconhecido e vira venda com um clique, sem digitar de novo.",
+    highlight: true,
+  },
+  {
     icon: Store,
     title: "Loja Online",
     description:
       "Sua loja própria na internet: o cliente monta o pedido e ele cai direto no sistema, pronto para a entrega.",
-    highlight: true,
   },
   {
     icon: Receipt,

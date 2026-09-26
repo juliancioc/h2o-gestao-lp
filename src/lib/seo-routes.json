@@ -1,7 +1,7 @@
 {
   "/": {
     "title": "H2O Gestão - Sistema ERP para Distribuidoras de Água",
-    "description": "O ERP completo para distribuidoras de água. Gerencie pedidos, estoque e financeiro em uma única plataforma.",
+    "description": "O ERP completo para distribuidoras de água, com WhatsApp integrado: o pedido que chega na conversa vira venda sem digitar de novo. Pedidos, entregas, estoque e financeiro numa plataforma só.",
     "changefreq": "weekly",
     "priority": "1.0"
   },

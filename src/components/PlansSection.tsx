@@ -4,6 +4,7 @@ import {
   CreditCard,
   FileText,
   LifeBuoy,
+  MessageCircle,
   Smartphone,
   Sparkles,
   Store,
@@ -37,8 +38,12 @@ const essencialFeatures = [
 const operacaoFeatures = [
   "Tudo do plano Essencial",
   "Até 5 usuários (R$ 19/mês por usuário extra)",
+  "WhatsApp da distribuidora dentro do sistema",
+  // "Sem digitar de novo", e não "automático": o pedido é reconhecido na
+  // mensagem e vira venda quando alguém confirma na tela. Prometer venda
+  // sozinha na tabela de preços é vender o que o sistema não faz.
+  "Pedido do WhatsApp vira venda sem digitar de novo",
   "Loja online própria",
-  "Pedidos direto no seu WhatsApp",
   "Integração com Mercado Pago",
   "Painel de entregas do dia",
   "Aplicativo Android para os entregadores",
@@ -60,6 +65,8 @@ const gestaoFeatures = [
 const featureIcons: Record<string, typeof Check> = {
   "Emissão de nota fiscal": FileText,
   "Até 100 notas fiscais por mês": FileText,
+  "WhatsApp da distribuidora dentro do sistema": MessageCircle,
+  "Pedido do WhatsApp vira venda sem digitar de novo": MessageCircle,
   "Loja online própria": Store,
   "Painel de entregas do dia": Truck,
   "Aplicativo Android com o resumo do dia": Smartphone,
@@ -85,7 +92,7 @@ const plans = [
   {
     name: "Operação",
     slug: "operacao",
-    description: "Para vender e entregar mais: loja online + entregas",
+    description: "Para vender e entregar mais: WhatsApp + loja online + entregas",
     monthlyPrice: 99,
     priceNote: "Assine agora e garanta esse valor",
     badge: "Mais vendido",

@@ -13,7 +13,7 @@ const steps = [
     icon: Zap,
     title: "Registre as Vendas do Dia",
     description:
-      "Anote cada venda pelo celular ou computador, com Pix, dinheiro ou fiado, sem bagunça.",
+      "O pedido que chega no WhatsApp ou na loja online já entra pronto — é só conferir e confirmar. O resto você anota pelo celular ou computador, com Pix, dinheiro ou fiado.",
   },
   {
     number: "03",
