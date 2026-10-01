@@ -14,6 +14,16 @@ interface NumberFieldProps {
   /** Símbolo à direita, como "%" ou "un". */
   suffix?: string;
   placeholder?: string;
+  /** Id fixo, quando a página precisa apontar para o campo. Padrão: gerado. */
+  id?: string;
+  /**
+   * "number" usa o campo nativo (setas, step, min e max). O padrão, "text",
+   * aceita vírgula do jeito que o brasileiro digita preço.
+   */
+  type?: "text" | "number";
+  step?: number;
+  min?: number;
+  max?: number;
 }
 
 /**
@@ -28,8 +38,14 @@ const NumberField = ({
   prefix,
   suffix,
   placeholder,
+  id: idFixo,
+  type = "text",
+  step,
+  min,
+  max,
 }: NumberFieldProps) => {
-  const id = useId();
+  const idGerado = useId();
+  const id = idFixo ?? idGerado;
 
   return (
     <div className="space-y-1.5">
@@ -46,11 +62,15 @@ const NumberField = ({
           id={id}
           value={value}
           onChange={(event) => onChange(event.target.value)}
+          type={type}
+          step={step}
+          min={min}
+          max={max}
           inputMode="decimal"
           autoComplete="off"
           placeholder={placeholder}
           className={cn(
-            "h-11 bg-card",
+            "h-11 bg-card tabular-nums",
             prefix && "pl-10",
             suffix && "pr-12",
           )}

@@ -29,6 +29,12 @@
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
+    /* Vermelho para texto pequeno: o --destructive não passa no contraste AA. */
+    --destructive-text: 0 72% 42%;
+
+    /* Estados do resultado das ferramentas (lucro, alerta). */
+    --success: 152 65% 30%;
+    --warning: 30 90% 33%;
 
     --border: 210 30% 90%;
     --input: 210 30% 90%;
@@ -81,6 +87,10 @@
 
     --accent: 195 80% 25%;
     --accent-foreground: 195 100% 85%;
+
+    --destructive-text: 0 85% 70%;
+    --success: 152 55% 55%;
+    --warning: 38 92% 58%;
 
     --border: 215 25% 20%;
     --input: 215 25% 20%;

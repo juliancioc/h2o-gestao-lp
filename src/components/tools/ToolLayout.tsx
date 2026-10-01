@@ -1,9 +1,9 @@
 import { ReactNode } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import Logo from "@/components/Logo";
 import Footer from "@/components/Footer";
-import { Button } from "@/components/ui/button";
+import { StartTrialButton } from "@/components/analytics/StartTrialButton";
 
 interface ToolLayoutProps {
   badge: string;
@@ -11,6 +11,10 @@ interface ToolLayoutProps {
   subtitle: string;
   ctaTitle: string;
   ctaDescription: string;
+  /** Texto do botão do convite. */
+  ctaLabel?: string;
+  /** `source` do click_start_trial. Padrão: o caminho da página. */
+  ctaSource?: string;
   /** Para onde volta o link do cabeçalho. Padrão: a lista de ferramentas. */
   backTo?: string;
   backLabel?: string;
@@ -27,17 +31,13 @@ const ToolLayout = ({
   subtitle,
   ctaTitle,
   ctaDescription,
+  ctaLabel = "Começar agora",
+  ctaSource,
   backTo = "/ferramentas",
   backLabel = "Todas as ferramentas",
   children,
 }: ToolLayoutProps) => {
-  const handleRegister = () => {
-    window.open(
-      "https://app.h2ogestao.com.br/register",
-      "_blank",
-      "noopener,noreferrer",
-    );
-  };
+  const { pathname } = useLocation();
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
@@ -87,14 +87,16 @@ const ToolLayout = ({
               <p className="text-base md:text-lg text-primary-foreground/80 mb-8 leading-relaxed">
                 {ctaDescription}
               </p>
-              <Button
+              {/* Link de verdade, e não window.open: é o que deixa o GA4
+                  levar a sessão para o app.h2ogestao.com.br. */}
+              <StartTrialButton
                 variant="heroOutline"
                 size="lg"
                 className="w-full sm:w-auto"
-                onClick={handleRegister}
+                source={ctaSource ?? pathname}
               >
-                Começar agora <ArrowRight className="ml-2" />
-              </Button>
+                {ctaLabel} <ArrowRight className="ml-2" />
+              </StartTrialButton>
             </div>
           </div>
         </section>

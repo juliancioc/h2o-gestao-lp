@@ -17,6 +17,12 @@
     "changefreq": "monthly",
     "priority": "0.8"
   },
+  "/ferramentas/abrir-distribuidora": {
+    "title": "Simulador de Viabilidade para Distribuidora de Água | H2O Gestão",
+    "description": "Descubra se sua distribuidora de água dá lucro: calcule margem, ponto de equilíbrio, lucro mensal e retorno do investimento em segundos. Grátis.",
+    "changefreq": "monthly",
+    "priority": "0.8"
+  },
   "/privacidade": {
     "title": "Política de privacidade e LGPD | H2O Gestão",
     "description": "Como o H2O Gestão coleta, usa, armazena e protege os dados da sua distribuidora, em conformidade com a LGPD.",

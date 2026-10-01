@@ -8,10 +8,10 @@
   },
   {
     "path": "/ferramentas/abrir-distribuidora",
-    "title": "Quanto custa abrir uma distribuidora",
+    "title": "Quanto custa abrir uma distribuidora de água",
     "shortTitle": "Abrir distribuidora",
     "description": "Simule o investimento inicial, o custo fixo mensal e quantas entregas por dia você precisa fazer para o negócio se pagar.",
-    "available": false
+    "available": true
   },
   {
     "path": "/ferramentas/taxa-de-entrega",

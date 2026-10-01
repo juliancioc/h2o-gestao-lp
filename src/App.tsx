@@ -13,6 +13,7 @@ import Termos from "./pages/Termos";
 import ProgramaParceiros from "./pages/ProgramaParceiros";
 import FerramentasIndex from "./pages/ferramentas/Index";
 import CustoDoGalao from "./pages/ferramentas/CustoDoGalao";
+import AbrirDistribuidora from "./pages/ferramentas/AbrirDistribuidora";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -47,6 +48,10 @@ export const AppRoutes = () => (
       <Route path="/termos" element={<Termos />} />
       <Route path="/ferramentas" element={<FerramentasIndex />} />
       <Route path="/ferramentas/custo-do-galao" element={<CustoDoGalao />} />
+      <Route
+        path="/ferramentas/abrir-distribuidora"
+        element={<AbrirDistribuidora />}
+      />
       {/* Página não listada: acesso só por link direto (noindex) */}
       <Route
         path="/programa-parceiros-h2o-2026"

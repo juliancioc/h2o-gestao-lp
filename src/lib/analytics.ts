@@ -19,7 +19,11 @@ export type AnalyticsEvent =
   | { event: "view_pricing"; billing?: "mensal" | "anual" }
   | { event: "click_start_trial"; source: string; plan?: string; billing?: string }
   | { event: "click_download_app"; source: string }
-  | { event: "click_whatsapp"; source: string };
+  | { event: "click_whatsapp"; source: string }
+  // Ferramentas gratuitas: `tool` é o caminho da página.
+  | { event: "view_tool"; tool: string }
+  | { event: "use_tool"; tool: string }
+  | { event: "change_delivery_mode"; tool: string; mode: "contratado" | "proprio" };
 
 type DataLayerEntry = AnalyticsEvent | Record<string, unknown>;
 
