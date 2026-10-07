@@ -7,6 +7,13 @@ import {
 
 const faqs = [
   {
+    // Sem preço de pacote de crédito por enquanto: a venda dos créditos ainda
+    // espera a definição da nota fiscal. Quando liberar, os valores entram aqui.
+    question: "O que é o Gota IA?",
+    answer:
+      "É o assistente de inteligência artificial do H2O Gestão. Você pergunta em português, do jeito que falaria com alguém (\"quanto vendi semana passada?\", \"qual produto me dá mais lucro?\", \"quem parou de comprar?\"), e o Gota responde na hora com os números do seu sistema: vendas, lucro, despesas, fiado, estoque, vasilhames e caixa. Ele usa só os seus dados, diz de qual relatório tirou cada número e não inventa nem altera nada. Fica no painel do administrador, e todo plano tem perguntas grátis por mês: 5 no Essencial, 15 no Operação e 40 no Gestão. Se acabar a franquia antes do fim do mês, dá para comprar mais perguntas pelo próprio painel.",
+  },
+  {
     question: "Como funciona a integração com o WhatsApp?",
     answer:
       "Você conecta o número que já usa, pela API oficial do WhatsApp, e continua atendendo pelo aplicativo do celular normalmente — as conversas aparecem também dentro do sistema. Quando o cliente manda um pedido, o H2O Gestão reconhece o que ele pediu e deixa pronto na tela: você confere e confirma, e a venda e a entrega são criadas sem digitar tudo de novo. Nada é enviado ao cliente automaticamente e nenhuma venda é registrada sem alguém confirmar. Está no plano Operação.",
@@ -39,7 +46,7 @@ const faqs = [
   {
     question: "Qual a diferença entre os planos?",
     answer:
-      "O Essencial (R$ 59/mês, até 2 usuários) inclui toda a gestão da distribuidora: vendas, caixa, estoque, clientes, fiado e relatórios. O Operação (R$ 99/mês, até 5 usuários) inclui tudo do Essencial mais o WhatsApp integrado, a loja online própria, o painel de entregas do dia e a emissão de nota fiscal. O Gestão (R$ 249/mês, até 8 usuários) inclui tudo do Operação mais entregadores ilimitados no aplicativo, até 100 notas fiscais por mês, onboarding assistido, importação dos seus dados e suporte prioritário. Usuários extras custam R$ 19/mês cada. Os três planos têm opção anual com 2 meses grátis, 12 meses pelo preço de 10.",
+      "O Essencial (R$ 59/mês, até 2 usuários) inclui toda a gestão da distribuidora: vendas, caixa, estoque, clientes, fiado e relatórios, e 5 perguntas por mês ao Gota IA. O Operação (R$ 99/mês, até 5 usuários) inclui tudo do Essencial mais o WhatsApp integrado, a loja online própria, o painel de entregas do dia, a emissão de nota fiscal e 15 perguntas por mês ao Gota. O Gestão (R$ 249/mês, até 8 usuários) inclui tudo do Operação mais entregadores ilimitados no aplicativo, até 100 notas fiscais por mês, 40 perguntas por mês ao Gota, onboarding assistido, importação dos seus dados e suporte prioritário. Usuários extras custam R$ 19/mês cada. Os três planos têm opção anual com 2 meses grátis, 12 meses pelo preço de 10.",
   },
   {
     question: "Meus dados estão seguros?",

@@ -10,16 +10,25 @@ import {
   Receipt,
   Store,
   MessageCircle,
+  Sparkles,
 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
 const features = [
   {
+    icon: Sparkles,
+    title: "Gota IA",
+    // Ele responde perguntas sobre os números; não lança, não altera e não
+    // decide nada. Prometer mais que isso é vender o que o sistema não faz.
+    description:
+      "Pergunte em português: \"quanto lucrei esse mês?\", \"quem está me devendo?\". O Gota responde na hora com os números do seu sistema, sem planilha e sem inventar.",
+    highlight: true,
+  },
+  {
     icon: MessageCircle,
     title: "WhatsApp Integrado",
     description:
       "O WhatsApp da sua distribuidora dentro do sistema. O pedido que chega na conversa é reconhecido e vira venda com um clique, sem digitar de novo.",
-    highlight: true,
   },
   {
     icon: Store,

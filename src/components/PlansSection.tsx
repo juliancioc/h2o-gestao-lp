@@ -23,6 +23,8 @@ import {
   CardFooter,
 } from "@/components/ui/card";
 
+// As perguntas grátis do Gota por mês ("Gota IA: N perguntas") são as mesmas
+// da API (jarvis-finance-api/src/utils/ai-limit.ts): mudou lá, muda aqui.
 const essencialFeatures = [
   "Até 2 usuários",
   "Gestão de vendas e pedidos",
@@ -33,11 +35,13 @@ const essencialFeatures = [
   "Relatórios e dashboards",
   "Análise de lucro por galão",
   "Aplicativo Android com o resumo do dia",
+  "Gota IA: 5 perguntas por mês",
 ];
 
 const operacaoFeatures = [
   "Tudo do plano Essencial",
   "Até 5 usuários (R$ 19/mês por usuário extra)",
+  "Gota IA: 15 perguntas por mês",
   "WhatsApp da distribuidora dentro do sistema",
   // "Sem digitar de novo", e não "automático": o pedido é reconhecido na
   // mensagem e vira venda quando alguém confirma na tela. Prometer venda
@@ -54,6 +58,7 @@ const operacaoFeatures = [
 const gestaoFeatures = [
   "Tudo do plano Operação",
   "Até 8 usuários (R$ 19/mês por usuário extra)",
+  "Gota IA: 40 perguntas por mês",
   "Entregadores ilimitados no aplicativo",
   "Até 100 notas fiscais por mês",
   "Onboarding assistido",
@@ -75,6 +80,9 @@ const featureIcons: Record<string, typeof Check> = {
   "Integração com Mercado Pago": CreditCard,
   "Onboarding assistido": LifeBuoy,
   "Importação dos seus dados": Upload,
+  "Gota IA: 5 perguntas por mês": Sparkles,
+  "Gota IA: 15 perguntas por mês": Sparkles,
+  "Gota IA: 40 perguntas por mês": Sparkles,
 };
 
 const plans = [
