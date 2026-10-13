@@ -3,6 +3,7 @@ import {
   Check,
   CreditCard,
   FileText,
+  Globe,
   LifeBuoy,
   MessageCircle,
   Smartphone,
@@ -66,6 +67,11 @@ const gestaoFeatures = [
   "Suporte prioritário",
 ];
 
+// Brinde do anual nos planos com loja online: a H2O registra e configura o
+// domínio .com.br da loja (1º ano incluído, renovação grátis enquanto a
+// assinatura seguir anual). Só aparece com o toggle em Anual.
+const ANNUAL_DOMAIN_PERK = "Domínio .com.br grátis para a loja";
+
 // Features destacadas nos cards (ícone próprio + texto em evidência)
 const featureIcons: Record<string, typeof Check> = {
   "Emissão de nota fiscal": FileText,
@@ -94,6 +100,7 @@ const plans = [
     priceNote: null,
     badge: null,
     features: essencialFeatures,
+    annualPerk: null,
     footnote: null,
     highlight: false,
   },
@@ -105,6 +112,7 @@ const plans = [
     priceNote: "Assine agora e garanta esse valor",
     badge: "Mais vendido",
     features: operacaoFeatures,
+    annualPerk: ANNUAL_DOMAIN_PERK,
     footnote:
       "A emissão de nota fiscal inclui até 40 notas por mês. Precisando de mais, emissões extras podem ser contratadas por R$ 1,00 cada.",
     highlight: true,
@@ -117,6 +125,7 @@ const plans = [
     priceNote: null,
     badge: "Mais completo",
     features: gestaoFeatures,
+    annualPerk: ANNUAL_DOMAIN_PERK,
     footnote:
       "Emissões acima de 100 notas no mês podem ser contratadas por R$ 1,00 cada. A importação dos seus dados e o onboarding são feitos pela nossa equipe na contratação.",
     highlight: false,
@@ -218,6 +227,10 @@ const PlansSection = () => {
               </span>
             </button>
           </div>
+          <p className="mt-3 text-sm text-muted-foreground">
+            No anual dos planos Operação e Gestão, o domínio .com.br da sua loja
+            sai grátis.
+          </p>
         </div>
 
         {/* Pricing Cards */}
@@ -269,9 +282,24 @@ const PlansSection = () => {
                       </p>
                     )
                   )}
+                  {!isAnnual && plan.annualPerk && (
+                    <p className="text-xs text-muted-foreground mt-1">
+                      No anual: domínio .com.br grátis
+                    </p>
+                  )}
                 </div>
 
                 <ul className="space-y-3">
+                  {isAnnual && plan.annualPerk && (
+                    <li className="flex items-start gap-3">
+                      <div className="w-5 h-5 rounded-full bg-gradient-to-r from-primary to-secondary flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <Globe className="w-3 h-3 text-primary-foreground" />
+                      </div>
+                      <span className="font-semibold text-primary">
+                        {plan.annualPerk}
+                      </span>
+                    </li>
+                  )}
                   {plan.features.map((feature) => {
                     const FeatureIcon = featureIcons[feature] ?? Check;
                     const isHighlighted = feature in featureIcons;

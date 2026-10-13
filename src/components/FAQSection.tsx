@@ -26,7 +26,7 @@ const faqs = [
   {
     question: "A loja online está inclusa nos planos?",
     answer:
-      "A loja online própria faz parte do plano Operação, sem taxa por pedido e sem comissão de marketplace. Sua distribuidora ganha um link exclusivo para compartilhar com os clientes, e cada pedido feito na loja cai direto no sistema e no painel de entregas.",
+      "A loja online própria faz parte do plano Operação, sem taxa por pedido e sem comissão de marketplace. Sua distribuidora ganha um link exclusivo para compartilhar com os clientes, e cada pedido feito na loja cai direto no sistema e no painel de entregas. No plano anual (Operação ou Gestão), a loja ainda ganha um domínio .com.br próprio, grátis: nós registramos e configuramos.",
   },
   {
     question: "O H2O Gestão emite nota fiscal?",
@@ -46,7 +46,7 @@ const faqs = [
   {
     question: "Qual a diferença entre os planos?",
     answer:
-      "O Essencial (R$ 59/mês, até 2 usuários) inclui toda a gestão da distribuidora: vendas, caixa, estoque, clientes, fiado e relatórios, e 5 perguntas por mês ao Gota IA. O Operação (R$ 99/mês, até 5 usuários) inclui tudo do Essencial mais o WhatsApp integrado, a loja online própria, o painel de entregas do dia, a emissão de nota fiscal e 15 perguntas por mês ao Gota. O Gestão (R$ 249/mês, até 8 usuários) inclui tudo do Operação mais entregadores ilimitados no aplicativo, até 100 notas fiscais por mês, 40 perguntas por mês ao Gota, onboarding assistido, importação dos seus dados e suporte prioritário. Usuários extras custam R$ 19/mês cada. Os três planos têm opção anual com 2 meses grátis, 12 meses pelo preço de 10.",
+      "O Essencial (R$ 59/mês, até 2 usuários) inclui toda a gestão da distribuidora: vendas, caixa, estoque, clientes, fiado e relatórios, e 5 perguntas por mês ao Gota IA. O Operação (R$ 99/mês, até 5 usuários) inclui tudo do Essencial mais o WhatsApp integrado, a loja online própria, o painel de entregas do dia, a emissão de nota fiscal e 15 perguntas por mês ao Gota. O Gestão (R$ 249/mês, até 8 usuários) inclui tudo do Operação mais entregadores ilimitados no aplicativo, até 100 notas fiscais por mês, 40 perguntas por mês ao Gota, onboarding assistido, importação dos seus dados e suporte prioritário. Usuários extras custam R$ 19/mês cada. Os três planos têm opção anual com 2 meses grátis, 12 meses pelo preço de 10, e no Operação e no Gestão o anual inclui um domínio .com.br grátis para a loja.",
   },
   {
     question: "Meus dados estão seguros?",

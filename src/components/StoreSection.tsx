@@ -5,6 +5,7 @@ import {
   BadgePercent,
   UserCheck,
   Check,
+  Globe,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import storeDemo from "@/assets/exemplo-loja-demo.png";
@@ -33,6 +34,12 @@ const benefits = [
     title: "Reconhece o cliente pelo telefone",
     description:
       "Cliente que já comprou é identificado pelo número e não precisa preencher endereço de novo.",
+  },
+  {
+    icon: Globe,
+    title: "Seu próprio domínio .com.br",
+    description:
+      "No plano anual, registramos e configuramos o domínio da sua loja sem custo. Você não mexe em DNS.",
   },
 ];
 
