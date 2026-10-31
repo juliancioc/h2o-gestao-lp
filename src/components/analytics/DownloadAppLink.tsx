@@ -1,9 +1,11 @@
 import { pushDataLayer } from "@/lib/analytics";
-import { PLAY_STORE_URL } from "@/lib/app";
+import { APP_STORE_URLS, type AppStore } from "@/lib/app";
 
 interface DownloadAppLinkProps {
   /** De onde saiu o clique (secao_app, rodape...). */
   source: string;
+  /** Loja de destino; vai no evento para separar Android de iPhone. */
+  store: AppStore;
   className?: string;
   children: React.ReactNode;
 }
@@ -21,16 +23,19 @@ interface DownloadAppLinkProps {
  */
 export function DownloadAppLink({
   source,
+  store,
   className,
   children,
 }: DownloadAppLinkProps) {
   return (
     <a
-      href={PLAY_STORE_URL}
+      href={APP_STORE_URLS[store]}
       target="_blank"
       rel="noopener noreferrer"
       className={className}
-      onClick={() => pushDataLayer({ event: "click_download_app", source })}
+      onClick={() =>
+        pushDataLayer({ event: "click_download_app", source, store })
+      }
     >
       {children}
     </a>

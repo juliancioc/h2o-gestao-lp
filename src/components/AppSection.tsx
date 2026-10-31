@@ -121,14 +121,22 @@ const AppSection = () => {
               ))}
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4">
-              <StartTrialButton size="lg" source="secao_app">
-                {trialCopy.finalCta}
-              </StartTrialButton>
+            <StartTrialButton size="lg" source="secao_app">
+              {trialCopy.finalCta}
+            </StartTrialButton>
+
+            {/* Lado a lado até no celular: dois rótulos curtos cabem em 375px. */}
+            <div className="grid grid-cols-2 gap-3 mt-4 sm:max-w-md">
               <Button variant="outline" size="lg" asChild>
-                <DownloadAppLink source="secao_app">
+                <DownloadAppLink source="secao_app" store="android">
                   <Smartphone className="w-5 h-5" />
-                  Baixar o app
+                  Android
+                </DownloadAppLink>
+              </Button>
+              <Button variant="outline" size="lg" asChild>
+                <DownloadAppLink source="secao_app" store="ios">
+                  <Smartphone className="w-5 h-5" />
+                  iPhone
                 </DownloadAppLink>
               </Button>
             </div>

@@ -35,7 +35,7 @@ const essencialFeatures = [
   "Controle de galões",
   "Relatórios e dashboards",
   "Análise de lucro por galão",
-  "Aplicativo Android com o resumo do dia",
+  "Aplicativo Android e iPhone com o resumo do dia",
   "Gota IA: 5 perguntas por mês",
 ];
 
@@ -51,7 +51,7 @@ const operacaoFeatures = [
   "Loja online própria",
   "Integração com Mercado Pago",
   "Painel de entregas do dia",
-  "Aplicativo Android para os entregadores",
+  "Aplicativo Android e iPhone para os entregadores",
   "Taxas de entrega por bairro",
   "Emissão de nota fiscal",
 ];
@@ -80,8 +80,8 @@ const featureIcons: Record<string, typeof Check> = {
   "Pedido do WhatsApp vira venda sem digitar de novo": MessageCircle,
   "Loja online própria": Store,
   "Painel de entregas do dia": Truck,
-  "Aplicativo Android com o resumo do dia": Smartphone,
-  "Aplicativo Android para os entregadores": Smartphone,
+  "Aplicativo Android e iPhone com o resumo do dia": Smartphone,
+  "Aplicativo Android e iPhone para os entregadores": Smartphone,
   "Entregadores ilimitados no aplicativo": Truck,
   "Integração com Mercado Pago": CreditCard,
   "Onboarding assistido": LifeBuoy,

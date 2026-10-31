@@ -99,17 +99,28 @@ const Footer = () => {
                 </li>
               ))}
               {/*
-                Fora do array porque não é âncora da página: é a loja do
-                Google, em outra aba e com evento próprio. Fica aqui porque o
-                cliente que já assina volta ao site para instalar o app no
-                celular do entregador, e o rodapé é onde ele procura.
+                Fora do array porque não são âncoras da página: são as lojas
+                (Google Play e App Store), em outra aba e com evento próprio.
+                Ficam aqui porque o cliente que já assina volta ao site para
+                instalar o app no celular do entregador, e o rodapé é onde ele
+                procura.
               */}
               <li>
                 <DownloadAppLink
                   source="rodape"
+                  store="android"
                   className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors"
                 >
                   Baixar o app (Android)
+                </DownloadAppLink>
+              </li>
+              <li>
+                <DownloadAppLink
+                  source="rodape"
+                  store="ios"
+                  className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors"
+                >
+                  Baixar o app (iPhone)
                 </DownloadAppLink>
               </li>
             </ul>
