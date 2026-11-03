@@ -4,7 +4,7 @@ import { company } from "@/lib/company";
 
 const Privacidade = () => {
   return (
-    <LegalLayout title="Política de Privacidade e LGPD" updatedAt="21 de outubro de 2026">
+    <LegalLayout title="Política de Privacidade e LGPD" updatedAt="2 de novembro de 2026">
       <Seo path="/privacidade" />
       <p>
         Esta Política de Privacidade descreve como a {company.razaoSocial},
@@ -38,8 +38,12 @@ const Privacidade = () => {
         </li>
       </ul>
       <p>
-        O aplicativo não acessa sua localização, câmera, microfone, contatos
-        nem fotos, e não rastreia você em apps ou sites de terceiros.
+        O aplicativo só acessa a localização do aparelho quando o usuário toca
+        em "Salvar localização aqui" em uma entrega: o ponto é gravado no
+        cadastro daquele cliente, para organizar as entregas. Ele não usa a
+        localização em segundo plano nem guarda o trajeto de quem entrega. O
+        aplicativo não acessa câmera, microfone, contatos nem fotos, e não
+        rastreia você em apps ou sites de terceiros.
       </p>
 
       <h2 id="finalidade">2. Como usamos seus dados</h2>
