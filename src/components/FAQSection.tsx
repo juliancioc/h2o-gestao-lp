@@ -24,6 +24,12 @@ const faqs = [
       "Não. É o mesmo número, e o aplicativo do WhatsApp Business continua funcionando no seu celular. Algumas funções do aplicativo deixam de funcionar nesse número por exigência do WhatsApp — grupos, listas de transmissão, chamadas de voz e vídeo e o catálogo do aplicativo — e a tela de conexão mostra essa lista antes de você confirmar.",
   },
   {
+    // Números iguais aos da API (jarvis-finance-api/src/utils/order-limit.ts).
+    question: "Existe limite de pedidos por mês?",
+    answer:
+      "Cada plano inclui uma quantidade de pedidos por mês: até 500 no Essencial, até 1.200 no Operação e ilimitados no Gestão. Você acompanha quanto já usou na tela de Assinatura e recebe um aviso quando estiver chegando perto. Os pedidos feitos pela loja online nunca são bloqueados: se a sua distribuidora cresceu além do plano, é só trocar de plano para continuar lançando pedidos no sistema.",
+  },
+  {
     question: "A loja online está inclusa nos planos?",
     answer:
       "A loja online própria faz parte do plano Operação, sem taxa por pedido e sem comissão de marketplace. Sua distribuidora ganha um link exclusivo para compartilhar com os clientes, e cada pedido feito na loja cai direto no sistema e no painel de entregas. No plano anual (Operação ou Gestão), a loja ainda ganha um domínio .com.br próprio, grátis: nós registramos e configuramos.",

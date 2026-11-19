@@ -26,8 +26,10 @@ import {
 
 // As perguntas grátis do Gota por mês ("Gota IA: N perguntas") são as mesmas
 // da API (jarvis-finance-api/src/utils/ai-limit.ts): mudou lá, muda aqui.
+// Pedidos por mês idem (jarvis-finance-api/src/utils/order-limit.ts).
 const essencialFeatures = [
   "Até 2 usuários",
+  "Até 500 pedidos por mês",
   "Gestão de vendas e pedidos",
   "Financeiro completo",
   "Fechamento de caixa diário",
@@ -42,6 +44,7 @@ const essencialFeatures = [
 const operacaoFeatures = [
   "Tudo do plano Essencial",
   "Até 5 usuários (R$ 19/mês por usuário extra)",
+  "Até 1.200 pedidos por mês",
   "Gota IA: 15 perguntas por mês",
   "WhatsApp da distribuidora dentro do sistema",
   // "Sem digitar de novo", e não "automático": o pedido é reconhecido na
@@ -59,6 +62,7 @@ const operacaoFeatures = [
 const gestaoFeatures = [
   "Tudo do plano Operação",
   "Até 8 usuários (R$ 19/mês por usuário extra)",
+  "Pedidos ilimitados",
   "Gota IA: 40 perguntas por mês",
   "Entregadores ilimitados no aplicativo",
   "Até 100 notas fiscais por mês",
