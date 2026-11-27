@@ -11,7 +11,7 @@ const faqs = [
     // espera a definição da nota fiscal. Quando liberar, os valores entram aqui.
     question: "O que é o Gota IA?",
     answer:
-      "É o assistente de inteligência artificial do H2O Gestão. Você pergunta em português, do jeito que falaria com alguém (\"quanto vendi semana passada?\", \"qual produto me dá mais lucro?\", \"quem parou de comprar?\"), e o Gota responde na hora com os números do seu sistema: vendas, lucro, despesas, fiado, estoque, vasilhames e caixa. Ele usa só os seus dados, diz de qual relatório tirou cada número e não inventa nem altera nada. Fica no painel do administrador, e todo plano tem perguntas grátis por mês: 5 no Essencial, 15 no Operação e no Operação 2, e 40 no Gestão. Se acabar a franquia antes do fim do mês, dá para comprar mais perguntas pelo próprio painel.",
+      "É o assistente de inteligência artificial do H2O Gestão. Você pergunta em português, do jeito que falaria com alguém (\"quanto vendi semana passada?\", \"qual produto me dá mais lucro?\", \"quem parou de comprar?\"), e o Gota responde na hora com os números do seu sistema: vendas, lucro, despesas, fiado, estoque, vasilhames e caixa. Ele usa só os seus dados, diz de qual relatório tirou cada número e não inventa nem altera nada. Fica no painel do administrador, e todo plano tem perguntas grátis por mês: 5 no Essencial, 15 no Operação e no Expansão, e 40 no Gestão. Se acabar a franquia antes do fim do mês, dá para comprar mais perguntas pelo próprio painel.",
   },
   {
     question: "Como funciona a integração com o WhatsApp?",
@@ -27,12 +27,12 @@ const faqs = [
     // Números iguais aos da API (jarvis-finance-api/src/utils/order-limit.ts).
     question: "Existe limite de pedidos por mês?",
     answer:
-      "Cada plano inclui uma quantidade de pedidos por mês: até 500 no Essencial, até 1.200 no Operação, até 3.000 no Operação 2 e ilimitados no Gestão. Você acompanha quanto já usou na tela de Assinatura e recebe um aviso quando estiver chegando perto. Os pedidos feitos pela loja online nunca são bloqueados: se a sua distribuidora cresceu além do plano, é só trocar de plano para continuar lançando pedidos no sistema.",
+      "Cada plano inclui uma quantidade de pedidos por mês: até 500 no Essencial, até 1.200 no Operação, até 3.000 no Expansão e ilimitados no Gestão. Você acompanha quanto já usou na tela de Assinatura e recebe um aviso quando estiver chegando perto. Os pedidos feitos pela loja online nunca são bloqueados: se a sua distribuidora cresceu além do plano, é só trocar de plano para continuar lançando pedidos no sistema.",
   },
   {
     question: "A loja online está inclusa nos planos?",
     answer:
-      "A loja online própria faz parte do plano Operação, sem taxa por pedido e sem comissão de marketplace. Sua distribuidora ganha um link exclusivo para compartilhar com os clientes, e cada pedido feito na loja cai direto no sistema e no painel de entregas. No plano anual (Operação ou Operação 2), a loja ainda ganha um domínio .com.br próprio, grátis: nós registramos e configuramos. No Gestão, o domínio próprio já vem incluso, no mensal ou no anual.",
+      "A loja online própria faz parte do plano Operação, sem taxa por pedido e sem comissão de marketplace. Sua distribuidora ganha um link exclusivo para compartilhar com os clientes, e cada pedido feito na loja cai direto no sistema e no painel de entregas. No plano anual (Operação ou Expansão), a loja ainda ganha um domínio .com.br próprio, grátis: nós registramos e configuramos. No Gestão, o domínio próprio já vem incluso, no mensal ou no anual.",
   },
   {
     question: "O H2O Gestão emite nota fiscal?",
@@ -52,7 +52,7 @@ const faqs = [
   {
     question: "Qual a diferença entre os planos?",
     answer:
-      "O Essencial (R$ 59/mês, até 2 usuários) inclui toda a gestão da distribuidora: vendas, caixa, estoque, clientes, fiado e relatórios, e 5 perguntas por mês ao Gota IA. O Operação (R$ 99/mês, até 5 usuários) inclui tudo do Essencial mais o WhatsApp integrado, a loja online própria, o painel de entregas do dia, a emissão de nota fiscal e 15 perguntas por mês ao Gota. O Operação 2 (R$ 129/mês, até 8 usuários) é o Operação com mais folga: até 3.000 pedidos por mês. O Gestão (R$ 249/mês, usuários ilimitados) inclui tudo do Operação mais pedidos ilimitados, domínio próprio para a loja, entregadores ilimitados no aplicativo, até 100 notas fiscais por mês, 40 perguntas por mês ao Gota, onboarding assistido, importação dos seus dados e suporte prioritário. Usuários extras custam R$ 19/mês cada no Essencial, no Operação e no Operação 2. Os quatro planos têm opção anual com 2 meses grátis, 12 meses pelo preço de 10, e no Operação e no Operação 2 o anual inclui um domínio .com.br grátis para a loja.",
+      "O Essencial (R$ 59/mês, até 2 usuários) inclui toda a gestão da distribuidora: vendas, caixa, estoque, clientes, fiado e relatórios, e 5 perguntas por mês ao Gota IA. O Operação (R$ 99/mês, até 5 usuários) inclui tudo do Essencial mais o WhatsApp integrado, a loja online própria, o painel de entregas do dia, a emissão de nota fiscal e 15 perguntas por mês ao Gota. O Expansão (R$ 129/mês, até 8 usuários) é o Operação com mais folga: até 3.000 pedidos por mês. O Gestão (R$ 249/mês, usuários ilimitados) inclui tudo do Operação mais pedidos ilimitados, domínio próprio para a loja, entregadores ilimitados no aplicativo, até 100 notas fiscais por mês, 40 perguntas por mês ao Gota, onboarding assistido, importação dos seus dados e suporte prioritário. Usuários extras custam R$ 19/mês cada no Essencial, no Operação e no Expansão. Os quatro planos têm opção anual com 2 meses grátis, 12 meses pelo preço de 10, e no Operação e no Expansão o anual inclui um domínio .com.br grátis para a loja.",
   },
   {
     question: "Meus dados estão seguros?",

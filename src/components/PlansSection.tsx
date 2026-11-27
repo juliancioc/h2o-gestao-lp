@@ -59,7 +59,7 @@ const operacaoFeatures = [
   "Emissão de nota fiscal",
 ];
 
-// Operação 2 (26/11/2026): o Operação com mais folga de volume e de equipe.
+// Expansão (26/11/2026): o Operação com mais folga de volume e de equipe.
 const operacao2Features = [
   "Tudo do plano Operação",
   "Até 8 usuários (R$ 19/mês por usuário extra)",
@@ -132,7 +132,7 @@ const plans = [
     highlight: true,
   },
   {
-    name: "Operação 2",
+    name: "Expansão",
     slug: "operacao2",
     description: "Tudo do Operação para quem vende mais e tem equipe maior",
     monthlyPrice: 129,
@@ -256,7 +256,7 @@ const PlansSection = () => {
             </button>
           </div>
           <p className="mt-3 text-sm text-muted-foreground">
-            No anual do Operação e do Operação 2, o domínio .com.br da sua loja
+            No anual do Operação e do Expansão, o domínio .com.br da sua loja
             sai grátis.
           </p>
         </div>
