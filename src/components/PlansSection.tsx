@@ -59,10 +59,19 @@ const operacaoFeatures = [
   "Emissão de nota fiscal",
 ];
 
-const gestaoFeatures = [
+// Operação 2 (26/11/2026): o Operação com mais folga de volume e de equipe.
+const operacao2Features = [
   "Tudo do plano Operação",
   "Até 8 usuários (R$ 19/mês por usuário extra)",
+  "Até 3.000 pedidos por mês",
+  "Gota IA: 15 perguntas por mês",
+];
+
+const gestaoFeatures = [
+  "Tudo do plano Operação",
+  "Usuários ilimitados",
   "Pedidos ilimitados",
+  "Domínio próprio para a loja online",
   "Gota IA: 40 perguntas por mês",
   "Entregadores ilimitados no aplicativo",
   "Até 100 notas fiscais por mês",
@@ -88,6 +97,7 @@ const featureIcons: Record<string, typeof Check> = {
   "Aplicativo Android e iPhone para os entregadores": Smartphone,
   "Entregadores ilimitados no aplicativo": Truck,
   "Integração com Mercado Pago": CreditCard,
+  "Domínio próprio para a loja online": Globe,
   "Onboarding assistido": LifeBuoy,
   "Importação dos seus dados": Upload,
   "Gota IA: 5 perguntas por mês": Sparkles,
@@ -122,14 +132,28 @@ const plans = [
     highlight: true,
   },
   {
+    name: "Operação 2",
+    slug: "operacao2",
+    description: "Tudo do Operação para quem vende mais e tem equipe maior",
+    monthlyPrice: 129,
+    priceNote: null,
+    badge: null,
+    features: operacao2Features,
+    annualPerk: ANNUAL_DOMAIN_PERK,
+    footnote:
+      "A emissão de nota fiscal inclui até 40 notas por mês. Precisando de mais, emissões extras podem ser contratadas por R$ 1,00 cada.",
+    highlight: false,
+  },
+  {
     name: "Gestão",
     slug: "gestao",
-    description: "Para equipes maiores: mais usuários, onboarding e suporte",
+    description: "Para equipes maiores: usuários ilimitados, domínio próprio e suporte",
     monthlyPrice: 249,
     priceNote: null,
     badge: "Mais completo",
     features: gestaoFeatures,
-    annualPerk: ANNUAL_DOMAIN_PERK,
+    // Sem o brinde do anual: o domínio próprio já vem no plano.
+    annualPerk: null,
     footnote:
       "Emissões acima de 100 notas no mês podem ser contratadas por R$ 1,00 cada. A importação dos seus dados e o onboarding são feitos pela nossa equipe na contratação.",
     highlight: false,
@@ -232,13 +256,13 @@ const PlansSection = () => {
             </button>
           </div>
           <p className="mt-3 text-sm text-muted-foreground">
-            No anual dos planos Operação e Gestão, o domínio .com.br da sua loja
+            No anual do Operação e do Operação 2, o domínio .com.br da sua loja
             sai grátis.
           </p>
         </div>
 
         {/* Pricing Cards */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 max-w-7xl mx-auto">
           {plans.map((plan) => (
             <Card
               key={plan.name}
